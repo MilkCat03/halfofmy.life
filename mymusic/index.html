@@ -27,37 +27,42 @@
             <br>
             
             <div id="fullsongs">
-                <h1>full songs: <button onclick="toggleSection('fullsongs-content')">click</button></h1>
+                <h1>full songs: <button onclick="toggleSection('fullsongs-content')">hide/show</button></h1>
                 <hr>
-                <div id="fullsongs-content" class="collapsed">
+                <div id="fullsongs-content">
                     <p>i only archive songs im proud of</p>
                     <a href="i dont know why/">i dont know why/a dissapointment to my family</a>
-                </div>
-            </div>
-            <hr>
-
-            <div id="demos">
-                <h1>demos: <button onclick="toggleSection('demos-content')">click</button></h1>
-                <hr>
-                <div id="demos-content" class="collapsed">
+                    <br>
                     
                 </div>
             </div>
             <hr>
 
-            <div id="audiofragments">
-                <h1>audio fragments: <button onclick="toggleSection('audiofragments-content')">click</button></h1>
+            <div id="demos">
+                <h1>demos: <button onclick="toggleSection('demos-content')">hide/show</button></h1>
                 <hr>
-                <div id="audiofragments-content" class="collapsed">
+                <div id="demos-content">
+                    <p>demos im working on, actively or inactively</p>
+                    <a href="like emo or sum idfk/">like emo or sum idfk/i've</a>
+                </div>
+            </div>
+            <hr>
+
+            <div id="audiofragments">
+                <h1>audio fragments: <button onclick="toggleSection('audiofragments-content')">hide/show</button></h1>
+                <hr>
+                <div id="audiofragments-content">
+                    <p>things i made that dont really have a place yet</p>
                     
                 </div>
             </div>
             <hr>
 
             <div id="lyricalfragments">
-                <h1>lyrical fragments/poetry: <button onclick="toggleSection('lyricalfragments-content')">click</button></h1>
+                <h1>lyrical fragments/poetry: <button onclick="toggleSection('lyricalfragments-content')">hide/show</button></h1>
                 <hr>
-                <div id="lyricalfragments-content" class="collapsed">
+                <div id="lyricalfragments-content">
+                    <p>poetry or lyrical fragments</p>
                     
                 </div>
             </div>
@@ -66,7 +71,7 @@
         <script>
             function toggleSection(sectionId) {
                 var section = document.getElementById(sectionId);
-                if (section.style.display === "none" || section.style.display === "") {
+                if (section.style.display === "none") {
                     section.style.display = "block";
                 } else {
                     section.style.display = "none";
