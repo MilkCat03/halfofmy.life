@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
+    <title>SONG TITLE - halfofmy.life</title>
+    <link rel="stylesheet" href="musicpage.css">
+    <style>
+        h1{
+            color:red;
+            text-align: center;
+        }
+
+        p{
+            color:white;
+        }
+
+        .date-timestamp{
+            color:orange;
+        }
+
+        #regret{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script src="../scrollingTextBG.js"></script>
+    <script>
+        createScrollingTextBG(' YOUR TEXT HERE - ');
+    </script>
+
+    <iframe src="../header.html" frameborder="0" scrolling="no"></iframe>
+    <br>
+    <br>
+    <div id="content">
+        <div id="center">
+            <h1>SONG TITLE</h1>
+            <h4>i originally made this MONTH DAY, YEAR</h4>
+        </div>
+        <hr>
+        
+        <!-- Audio Section Template - Copy and paste for each version -->
+        <div class="audio-section">
+            <p class="date-timestamp">MONTH DAY, YEAR - TIME</p>
+            <p>Description of this version...</p>
+            <div class="audio-info">Size: X.XXMB | Bitrate: 128kbps</div>
+            <audio controls preload="metadata">
+                <source src="FILENAME.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <hr>
+
+        <!-- Add more audio sections here -->
+
+        <hr>
+        <h1>conclusion:</h1>
+        <h3 id="regret">Your final thoughts about the song...</h3>
+
+    </div>
+</body>
+</html>

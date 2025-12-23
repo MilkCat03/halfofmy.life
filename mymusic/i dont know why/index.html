@@ -5,86 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
     <title>I dont know why - halfofmy.life</title>
+    <link rel="stylesheet" href="../musicpage.css">
     <style>
-        html {
-            background-image: url("../../../media/schizo.png");
-            font-family: "Comic Mono";
-        }
-
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 15px;
-            background-color: transparent;
-        }
-
-        #content {
-            padding: 15px;
-            background-color: black;
-            width: 97.5%;
-            height: auto;
-        }
-
-        h1 {
-            font-size: 50px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: white;
-            font-family: "Comic Mono";
-        }
-
-        hr {
-            border-color: #333;
-        }
-
-        data {
-            display: block;
-            margin: 10px 0;
-        }
-
-        audio {
-            width: 100%;
-            margin: 10px 0;
-            background-color: #222;
-        }
-
-        audio::-webkit-media-controls-panel {
-            background-color: #222;
-        }
-
-        #center {
+        h1{
+            color:red;
             text-align: center;
         }
 
-        .audio-info {
-            color: #888;
-            font-size: 0.9em;
-            margin: 5px 0;
-            font-style: italic;
+        p{
+            color:white;
         }
 
-        .audio-section {
+        .date-timestamp{
+            color:orange;
+        }
+
+        #regret{
             text-align: center;
-        }
-
-        .date-timestamp {
-            text-decoration: underline;
-            color: white;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <iframe>
-        
-    </iframe>
+    <script src="../../scrollingTextBG.js"></script>
+    <script>
+        createScrollingTextBG(' i dont know why - ');
+    </script>
+
+    <iframe src="../../header.html" frameborder="0" scrolling="no"></iframe>
+    <br>
+    <br>
     <div id="content">
         <div id="center">
-            <h1>I dont know why/a dissapointment to my family </h1>
-            <p>i originally made this April, 23, 2024</p>
+            <h1>I dont know why/a dissapointment to my family</h1>
+            <h4>i originally made this April, 23, 2024</h4>
         </div>
         <hr>
         <div class="audio-section">
@@ -195,7 +148,8 @@
 
         <hr>
 
-        <p>my biggest regret when making this is doubting myself. it sounded so beautiful and then i had to fuck it up with my overthinking. i strived for perfection, not soul.</p>
+        <h1>conculsion:</h1>
+        <h3 id="regret">my biggest regret when making this is doubting myself. it sounded so beautiful and then i had to fuck it up with my overthinking. i strived for perfection, not soul.</h3>
 
     </div>
 </body>

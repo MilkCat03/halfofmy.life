@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
+    <style>
+        html {
+            background-color: transparent;
+            font-family: "Comic Mono";
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        #header-content {
+            padding: 15px;
+            background-color: black;
+            width: calc(100% - 30px);
+            height: auto;
+            color: white;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+            justify-content: center;
+        }
+
+        .nav-button {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgb(134, 134, 134);
+            padding: 8px 16px;
+            font-family: "Comic Mono";
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin: 10px 0;
+            text-align: center;
+            background-image: url('media/autism/inrainbowsnotext.png');
+            background-size: 18%;
+            background-position: center;
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 2px 20px rgb(255, 145, 0));
+        }
+    </style>
+</head>
+<body>
+    <div id="header-content">
+            <h1>halfofmy.life</h1>
+            <hr>
+            <div class="nav-buttons">
+                <button style="color:yellow;" onclick="window.top.location='index.html'" class="nav-button">Home</button>
+                <button style="color:blue;" onclick="window.top.location='art.html'" class="nav-button">Art</button>
+                <button style="color:orangered;" onclick="window.top.location='mymusic/'" class="nav-button">My Music</button>
+                <button style="color:greenyellow;" onclick="window.top.location='secret.html'" class="nav-button">Others Music</button>
+                <button style="color:orange;" onclick="window.top.location='secret.html'" class="nav-button">Obessions</button>
+                <button style="color:red;" onclick="window.top.location='secret.html'" class="nav-button">Hobbies</button>
+                <button style="color:lightskyblue;" onclick="window.top.location='secret.html'" class="nav-button">Me</button>
+            </div>
+            <hr>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+html {
+            font-family: "Comic Mono";
+            background-color: transparent;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 15px;
+            background-color: transparent;
+            position: relative;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-color: #111;
+        }
+
+        #content {
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.80);
+            width: 97.5%;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: white;
+            font-family: "Comic Mono";
+        }
+
+        hr {
+            border-color: #333;
+        }
+
+        data {
+            display: block;
+            margin: 10px 0;
+        }
+
+        audio {
+            width: 100%;
+            margin: 10px 0;
+            background-color: #222;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #222;
+        }
+
+        #center {
+            text-align: center;
+        }
+
+        .audio-info {
+            color: #888;
+            font-size: 0.9em;
+            margin: 5px 0;
+            font-style: italic;
+        }
+
+        .audio-section {
+            text-align: center;
+        }
+
+        .date-timestamp {
+            text-decoration: underline;
+            color: white;
+            font-weight: bold;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 120px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
