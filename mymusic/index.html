@@ -9,32 +9,69 @@
         <style>
         html{
             background-image: url('../../media/space.jpg');
+            text-align: center;
+        }
+
+        a{
+            color:yellow;
+        }
+
+        .collapsed{
+            display: none;
         }
         </style>
     </head>
     <body>
         <div id="content">
             <iframe src="../header.html"></iframe>
-
+            <br>
+            
             <div id="fullsongs">
-                <h1>full songs</h1>
-                <a href="i dont know why/">i dont know why/a dissapointment to my family</a>
+                <h1>full songs: <button onclick="toggleSection('fullsongs-content')">click</button></h1>
+                <hr>
+                <div id="fullsongs-content" class="collapsed">
+                    <p>i only archive songs im proud of</p>
+                    <a href="i dont know why/">i dont know why/a dissapointment to my family</a>
+                </div>
             </div>
+            <hr>
 
             <div id="demos">
-                <h1>demos</h1>
-                
+                <h1>demos: <button onclick="toggleSection('demos-content')">click</button></h1>
+                <hr>
+                <div id="demos-content" class="collapsed">
+                    
+                </div>
             </div>
+            <hr>
 
             <div id="audiofragments">
-                <h1>audio fragments</h1>
-                
+                <h1>audio fragments: <button onclick="toggleSection('audiofragments-content')">click</button></h1>
+                <hr>
+                <div id="audiofragments-content" class="collapsed">
+                    
+                </div>
             </div>
+            <hr>
 
             <div id="lyricalfragments">
-                <h1>lyricalfragments/poetry</h1>
-                
+                <h1>lyrical fragments/poetry: <button onclick="toggleSection('lyricalfragments-content')">click</button></h1>
+                <hr>
+                <div id="lyricalfragments-content" class="collapsed">
+                    
+                </div>
             </div>
         </div>
+
+        <script>
+            function toggleSection(sectionId) {
+                var section = document.getElementById(sectionId);
+                if (section.style.display === "none" || section.style.display === "") {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+        </script>
     </body>
 </html>
