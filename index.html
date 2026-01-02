@@ -60,7 +60,43 @@
             padding: 0;
             display: block;
         }
+
+        #images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #images img {
+            width: auto;
+            max-height: 170px;
+            object-fit: contain;
+        }
+
+        #images embed {
+            width: 100%;
+            max-width: 400px;
+            min-width: 250px;
+        }
+        
+        #container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container img {
+            max-height: 520px;
+            height: auto;
+            width: auto;
+            object-fit: contain;
+        }
+        
     </style>
+    <script src="onmobile.js"></script>
 </head>
 <body>
     <div id="content">
@@ -130,6 +166,16 @@
             <hr>
             <div id="images">
                 <a href="https://discord.com/users/1374164585854271599/"><img src="media/discord.png"></a>
+                <a href="https://stats.fm/spunchbop"><img src="media/stats fm.png"></a>
+                <embed style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1xFCzGNrmnsx8RZqKBbszg?utm_source=generator&theme=0" height="165">
+                <a href="https://soundcloud.com/gee_willakers"><img src="media/soundcloud.png"></a>
+                
+            </div>
+            
+            <div id="container">
+                <img src="media/collage.png" height="520">
+                <img src="media/cool stats.png" height="520">
+                <img src="media/soundcloudsongs.png" height="520">
             </div>
         </div>
     </div>
