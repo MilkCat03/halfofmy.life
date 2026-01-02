@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#110011">
+    <meta name="author" content="halfofmy.life">
+    <meta name="description" content="Personal website featuring my music, art, and creative obsessions.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
     <title>halfofmy.life</title>
     
     <!-- Open Graph / Discord Embed -->
     <meta property="og:title" content="halfofmy.life">
-    <meta property="og:description" content="really cool website!">
+    <meta property="og:description" content="Personal website featuring my music, art, and creative obsessions.">
     <meta property="og:image" content="https://halfofmy.life/media/space.jpg">
     <meta property="og:url" content="https://halfofmy.life">
     <meta property="og:type" content="website">
     
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#000000">
-    
     <style>
         html {
             background-image: url("media/space.jpg");
+            background-size: cover;
             font-family: "Comic Mono";
             color:white;
         }
@@ -126,25 +129,10 @@
             </p>
             <hr>
         </div>
-        <div>
-            <h1>really secret section (not really)</h1>
-            <input type="password" placeholder="secret" id="password">
-            <button id="login" onclick="login()">other art</button>
-        </div>
     </div>
 
     <script>
         var iscollapsed = true;
-
-        function login() {
-            var password = document.getElementById("password").value;
-
-            if (password === "password") {
-                window.location = "/secret.html";
-            } else {
-                alert("try again.");
-            }
-        }
 
         function collapseable() {
             var thingtocollapse = document.getElementById("collapseThis");

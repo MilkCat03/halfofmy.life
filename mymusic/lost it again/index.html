@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#110011">
+    <meta name="author" content="halfofmy.life">
+    <meta name="description" content="'lost it again' — original song by halfofmy.life">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
+    <title>lost it again - halfofmy.life</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="lost it again - halfofmy.life">
+    <meta property="og:description" content="'lost it again' — original song by halfofmy.life">
+    <meta property="og:type" content="music.song">
+    <meta property="og:url" content="https://halfofmy.life/mymusic/lost it again">
+    <link rel="stylesheet" href="../musicpage.css">
+    <style>
+        h1{
+            color:rgb(255, 0, 0);
+            text-align: center;
+        }
+
+        h3{
+            color:rgb(255, 134, 134);
+            text-align: center;
+        }
+
+        p{
+            color:white;
+            text-align: center;
+        }
+
+        .date-timestamp{
+            color:rgb(255, 124, 124);
+        }
+
+        #regret{
+            text-align: center;
+        }
+
+        #center p{
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <script src="../../scrollingTextBG.js"></script>
+    <script>
+        createScrollingTextBG(' lost it again - ');
+    </script>
+
+    <iframe src="../../header.html" frameborder="0" scrolling="no"></iframe>
+    <br>
+    <br>
+    <div id="content">
+        <div id="center">
+            <h1>lost it again/self inficted headaches<h1>
+            <p>i originally made this december 12th 2025 when i was mad that i wasn't being creative enough. the lyrics were orignally</p>
+            <p>
+                lost again
+                <br>
+                no going home
+                <br>
+                <br>
+                frigid, naked, afraid
+                <br>
+                to wake up today
+                <br>
+                to wake up
+                <br>
+                <br>
+                self inflicted headaches
+                <br>
+                split it open, it aches
+                <br>
+                <br>
+            </p>
+            <h3>and its played like:</h3>
+            <p>
+                e-8-7-5-3
+                <br>
+                a-7-7-5-3
+            </p>
+            <h3>capo on 2nd fret</h3>
+        </div>
+        <hr>
+        
+        <div class="audio-section">
+            <p class="date-timestamp">December 29, 2025 - 1:00AM</p>
+            <p>very rough demo. i didnt wanna use my electric cause my electric sounds like hot ass rn cause i dont have the proper cables to record it. so i used my busted aucostic (however tf u spell it) the voice crack is awesome in it.</p>
+            <div class="audio-info">Size: 1.37MB | Bitrate: 128kbps</div>
+            <audio controls preload="metadata">
+                <source src="dec 12 29 2025 143.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <hr>
+        <h3>so my dumbass recorded it capo on 3rd fret on accident cause i gaslight myself into thinking its supposed to be like that.. so enjoy it.. i guess.</h3>
+        <hr>
+
+
+        <div class="audio-section">
+            <p class="date-timestamp">January 1, 2026 - 7:30PM</p>
+            <p>dude my allergies are killing me :( ts</p>
+            <div class="audio-info">Size: 1.89MB | Bitrate: 128kbps</div>
+            <audio controls preload="metadata" class="loud-audio">
+                <source src="jan 1 730pm.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <hr>
+
+        <div class="audio-section">
+            <p class="date-timestamp">January 1, 2026 - 7:34PM</p>
+            <p>look who has an intro now!!! in the wrong FUCKING KEY GOD DAMN IT I HATE MUSIC.</p>
+            <div class="audio-info">Size: 2.09MB | Bitrate: 128kbps</div>
+            <audio controls preload="metadata" class="loud-audio">
+                <source src="jan 1 734pm.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <hr>
+        <h1>conclusion:</h1>
+        <h3 id="regret">i dont have one yet :3 it kinda sounds like you cry i cry by anvii. its the only thing i hear when i listen to it.</h3>
+
+    </div>
+    
+    <script>
+        // Boost volume to 200% using Web Audio API
+        document.querySelectorAll('.loud-audio').forEach(audio => {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const track = audioContext.createMediaElementSource(audio);
+            const gainNode = audioContext.createGain();
+            
+            gainNode.gain.value = 2.0; // 200% volume
+            track.connect(gainNode).connect(audioContext.destination);
+            
+            // Resume audio context on user interaction (required by browsers)
+            audio.addEventListener('play', () => {
+                if (audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

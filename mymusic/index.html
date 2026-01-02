@@ -3,7 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+        <meta name="referrer" content="strict-origin-when-cross-origin">
+        <meta name="theme-color" content="#110011">
+        <meta name="author" content="halfofmy.life">
+        <meta name="description" content="My original music compositions — songs, tracks, and audio experiments.">
+        <meta name="keywords" content="original music, indie music, bedroom pop, experimental music, audio production">
         <title>halfofmy.life - my music</title>
+        
+        <!-- Open Graph -->
+        <meta property="og:title" content="halfofmy.life - my music">
+        <meta property="og:description" content="My original music compositions — songs, tracks, and audio experiments.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://halfofmy.life/mymusic">
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
         <link rel="stylesheet" href="../theme.css">
         <style>
@@ -19,16 +32,27 @@
         .collapsed{
             display: none;
         }
+
+        h1{
+            color:rgb(114, 113, 187);
+        }
+
+        h3{
+            color:rgb(253, 255, 154);
+        }
         </style>
     </head>
     <body>
         <div id="content">
             <iframe src="../header.html"></iframe>
             <br>
+
+            <h3>this will be full one day, trust</h3>
+            <p>if you could care less about my music, go <a href="../othersmusic/">here</a></p>
+            <hr>
             
             <div id="fullsongs">
                 <h1>full songs: <button onclick="toggleSection('fullsongs-content')">hide/show</button></h1>
-                <hr>
                 <div id="fullsongs-content">
                     <p>i only archive songs im proud of</p>
                     <a href="i dont know why/">i dont know why/a dissapointment to my family</a>
@@ -40,17 +64,16 @@
 
             <div id="demos">
                 <h1>demos: <button onclick="toggleSection('demos-content')">hide/show</button></h1>
-                <hr>
                 <div id="demos-content">
                     <p>demos im working on, actively or inactively</p>
                     <a href="like emo or sum idfk/">like emo or sum idfk/i've</a>
+                    <a href="lost it again/">lost it again/self inflicted headaches</a>
                 </div>
             </div>
             <hr>
 
             <div id="audiofragments">
                 <h1>audio fragments: <button onclick="toggleSection('audiofragments-content')">hide/show</button></h1>
-                <hr>
                 <div id="audiofragments-content">
                     <p>things i made that dont really have a place yet</p>
                     
@@ -60,7 +83,6 @@
 
             <div id="lyricalfragments">
                 <h1>lyrical fragments/poetry: <button onclick="toggleSection('lyricalfragments-content')">hide/show</button></h1>
-                <hr>
                 <div id="lyricalfragments-content">
                     <p>poetry or lyrical fragments</p>
                     
