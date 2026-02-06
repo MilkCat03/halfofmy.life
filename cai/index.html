@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character.ai Definition Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Character Definition Generator</h1>
+            <p class="subtitle">Create, enhance, and copy your character definitions easily.</p>
+        </header>
+        <main>
+            <section class="form-section">
+                <form id="character-form">
+                    <!-- Character Fields will be injected here by JavaScript -->
+                </form>
+                <button id="generate-btn" class="primary-btn">Generate Definition</button>
+            </section>
+            <section class="output-section">
+                <h2>Generated Definition</h2>
+                <textarea id="output" readonly></textarea>
+                <div class="button-row">
+                    <button id="copy-btn" class="secondary-btn">Copy</button>
+                    <button id="enhance-btn" class="secondary-btn">Enhance</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="tags.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
