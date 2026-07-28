@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
     <title>halfofmy.life</title>
     
-    <!-- Open Graph / Discord Embed -->
     <meta property="og:title" content="halfofmy.life">
     <meta property="og:description" content="Personal website featuring my music, art, and creative obsessions.">
     <meta property="og:image" content="https://halfofmy.life/media/space.jpg">
@@ -20,10 +19,12 @@
     
     <style>
         html {
-            background-image: url("media/space.jpg");
-            background-size: cover;
             font-family: "Comic Mono";
             color:white;
+            background-image: url("media/background.jpg");
+            background-size:500px;
+            background-position: center;
+            background-repeat: repeat;
         }
 
         body {
@@ -35,26 +36,32 @@
 
         #content {
             padding: 15px;
-            background-color: black;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            background-color: rgba(0, 0, 0, 0.8);
             width: 97.5%;
             height: auto;
+            margin-top:5px;    
         }
 
         h1 {
             font-size: 50px;
             margin-top: 10px;
             margin-bottom: 10px;
-            color:yellow;
+            color:orange;
+            text-align:center
         }
 
         #collapseThis {
             display: none;
+            font-size: 20px;
+            text-align: center;
         }
 
         iframe {
             width: 100%;
             height: 100%;
-            min-height: 120px;
+            min-height: 250px;
             border: none;
             margin: 0;
             padding: 0;
@@ -86,6 +93,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            
         }
 
         #container img {
@@ -102,6 +110,9 @@
             text-align: center;
         }
         
+        a{
+            color:aqua;
+        }
     </style>
     <script src="onmobile.js"></script>
 </head>
@@ -112,18 +123,20 @@
         <div id="aboutme">
             <h1>about me: <button onclick="collapseable()">click</button></h1> 
             <p id="collapseThis">
-                redoing this because im tired of myselfcore!!!
+                redoing/ this because im fucking sick of myself (part 2!!!)
                 <br><br>
-                i am 15 years old.
+                hi. im spunchbop.
                 <br><br>
-                i am a whopping 5'3" tall (very tall btw).
+                i'm a whopping 16 years old now. (07/27/2026 🕊️S.B.)
                 <br><br>
-                i have an extreme interest in computers, right now LLMs specifically (jawsome).
+                i make music. really bad stuff. and uh. idk. im trying to make an album.
                 <br><br>
-                i feel immense loneliness. (PLEASE TEXT ME)
+                i dont know why this website is up. im embarrased of it.
                 <br><br>
-                uhhh im going through a rough patch in life so. yay.
-                <a href="blog/spongebob.html">the spongebob journal incident</a>
+                if you want to talk to me. please add me on discord (im lonely asf)
+                <br></br>
+                so uh. yeah. goodbye. ily. take care.
+                <a href="/scan-ins/spongebob.html">the spongebob journal incident</a>
             </p>
             <hr>
             <div id="images">
@@ -135,17 +148,10 @@
             </div>
             
             <div id="container">
-                <img src="media/collage.png" height="520">
-                <img src="media/cool stats.png" height="520">
                 <img src="media/soundcloudsongs.png" height="520">
             </div>
         </div>
     </div>
-
-    
-        <div id="spotify">
-            <a href="blog/"><h1>GO READ MY BLOG IDIOTS!</h1></a>
-        </div>
 
     <script>
         var iscollapsed = true;
