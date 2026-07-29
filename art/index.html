@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
+    <title>halfofmy.life</title>
+    <style>
+        *{
+            overflow-x: hidden;        }
+
+        html {
+            font-family: "Comic Mono";
+            color:white;
+            background-image: url("background.jpg");
+            background-size:auto;
+            background-position: center;
+            background-repeat: repeat;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 15px;
+            background-color: transparent;
+        }
+
+        #content {
+            padding: 15px;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 96.3%;
+            height: auto;
+            margin-top:5px;    
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color:white;
+            text-align:center;
+            -webkit-text-stroke: 3px black;
+
+        }
+
+        iframe {
+            width: 98%;
+            height: 100%;
+            min-height: 250px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+        
+        #container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        #container img {
+            max-height: 520px;
+            height: auto;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        a{
+            color:aqua;
+        }
+
+        .gallerySection {
+            margin-bottom: 30px;
+        }
+
+        .gallerySection h3 {
+            margin-bottom: 15px;
+        }
+
+        .sectionDivider {
+            display: block;
+            width: min(720px, 92%);
+            max-height: 220px;
+            object-fit: cover;
+            margin: 0 auto 18px;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+        }
+
+        .galleryContent {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+            justify-content: center;
+            width:95%;  
+        }
+
+        .galleryContent img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 800px) {
+            .galleryContent {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        h3{
+            font-size: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color:white;
+            text-align:center;
+            -webkit-text-stroke: 3px black;
+        }
+
+        p{
+            font-size: 25px;
+            text-align: center;
+            -webkit-text-stroke: 1px black;
+        }
+
+    </style>
+    <script src="onmobile.js"></script>
+</head>
+<body> 
+    <iframe src="../header.html"></iframe>
+    <div id="content">
+        <hr>
+        <h1><b>my art!</b></h1>
+        <hr>
+        <p>
+            i've procrastinated this part of the website for way too long. but now it's here.
+            <br>
+            art projects ive worked on in the past. physical and drawn.
+            <br>
+            hope you enjoy.
+        </p>
+        <hr>
+        <div id="gallery"></div>
+    </div>
+    <script>
+        const gallerySections = [
+             {
+                title: 'relatives house',
+                images: [
+                    'images/relatives/IMG_0471.JPG',
+                    'images/relatives/IMG_0535.JPG',
+                    'images/relatives/IMG_0537.JPG',
+                    'images/unfinished/IMG_0472.JPG'
+
+                ]
+            },
+            {
+                title: 'church chronicles',
+                images: [
+                    'images/church chronicles/IMG_0466.JPG',
+                    'images/church chronicles/IMG_0470.JPG',
+                    'images/church chronicles/IMG_0529.JPG',
+                    'images/church chronicles/IMG_0530.JPG',
+                    'images/church chronicles/IMG_0531.JPG',
+                    'images/church chronicles/IMG_0533.JPG',
+                    'images/church chronicles/IMG_0534.JPG',
+                    'images/church chronicles/IMG_0536.JPG'
+                ]
+            },
+             {
+                title: 'nonpen',
+                images: [
+                    'images/nonpen/IMG_0464.JPG',
+                    'images/nonpen/IMG_0465.JPG',
+                    'images/nonpen/IMG_0467.JPG',
+                    'images/nonpen/IMG_0478.JPG',
+                    'images/nonpen/IMG_0479.jpg',
+                    'images/nonpen/IMG_0482.jpg'
+                ]
+            },
+            {
+                title: 'bluey notebook',
+                images: [
+                    'images/bluey notebook/IMG_0477.JPG',
+                    'images/bluey notebook/IMG_0486.JPG',
+                    'images/bluey notebook/IMG_0487.JPG',
+                    'images/bluey notebook/IMG_0488.JPG',
+                    'images/bluey notebook/IMG_0489.JPG',
+                    'images/bluey notebook/IMG_0490.JPG',
+                    'images/bluey notebook/IMG_0491.JPG',
+                    'images/bluey notebook/IMG_0492.JPG',
+                    'images/bluey notebook/IMG_0493.JPG',
+                    'images/bluey notebook/IMG_0494.JPG',
+                    'images/bluey notebook/IMG_0495.JPG',
+                    'images/bluey notebook/IMG_0496.JPG',
+                    'images/bluey notebook/IMG_0497.JPG',
+                    'images/bluey notebook/IMG_0498.JPG',
+                    'images/bluey notebook/IMG_0499.JPG',
+                    'images/bluey notebook/IMG_0500.JPG',
+                    'images/bluey notebook/IMG_0502.JPG',
+                    'images/bluey notebook/IMG_0503.JPG',
+                    'images/bluey notebook/IMG_0504.JPG',
+                    'images/bluey notebook/IMG_0505.JPG',
+                    'images/bluey notebook/IMG_0506.JPG',
+                    'images/bluey notebook/IMG_0508.JPG',
+                    'images/bluey notebook/IMG_0509.JPG',
+                    'images/bluey notebook/IMG_0511.JPG',
+                    'images/bluey notebook/IMG_0513.JPG',
+                    'images/bluey notebook/IMG_0515.JPG',
+                    'images/bluey notebook/IMG_0517.JPG',
+                    'images/bluey notebook/IMG_0518.JPG',
+                    'images/bluey notebook/IMG_0520.JPG',
+                    'images/bluey notebook/IMG_0521.JPG',
+                    'images/bluey notebook/IMG_0522.JPG',
+                    'images/bluey notebook/IMG_0523.JPG',
+                    'images/bluey notebook/IMG_0524.JPG',
+                    'images/bluey notebook/IMG_0532.JPG',
+                    'images/bluey notebook/IMG_0538.jpg',
+                    'images/bluey notebook/IMG_0528.JPG'
+                ]
+            },
+            {
+                title: 'music notebook',
+                images: [
+                    'images/music notebook/IMG_0474.JPG',
+                    'images/music notebook/IMG_0475.JPG',
+                    'images/music notebook/IMG_0476.JPG',
+                    'images/music notebook/IMG_0484.jpg'
+                ]
+            },
+            {
+                title: 'unfinished',
+                images: [
+                    'images/unfinished/IMG_0469.JPG',
+                    'images/unfinished/IMG_0473.JPG',
+                    'images/unfinished/IMG_0526.JPG',
+                    'images/unfinished/IMG_0527.JPG'
+                ]
+            },
+            {
+                title: 'text oriented',
+                images: [
+                    'images/text oriented/IMG_0507.JPG',
+                    'images/text oriented/IMG_0512.JPG',
+                    'images/text oriented/IMG_0516.JPG',
+                    'images/text oriented/IMG_0521.JPG',
+                    'images/text oriented/IMG_0538.jpg'
+                ]
+            }
+        ];
+
+        const galleryRoot = document.getElementById('gallery');
+
+        gallerySections.forEach((section) => {
+            const sectionElement = document.createElement('section');
+            sectionElement.className = 'gallerySection';
+
+            const titleElement = document.createElement('h3');
+            titleElement.innerHTML = `<b>${section.title}</b>`;
+
+            const dividerImage = document.createElement('hr');
+
+            const contentElement = document.createElement('div');
+            contentElement.className = 'galleryContent';
+
+            section.images.forEach((src) => {
+                const image = document.createElement('img');
+                image.src = src;
+                image.alt = section.title;
+                contentElement.appendChild(image);
+            });
+
+            const dividerImage2 = document.createElement('hr');
+
+            sectionElement.appendChild(titleElement);
+            sectionElement.appendChild(dividerImage);
+            sectionElement.appendChild(contentElement);
+            sectionElement.appendChild(dividerImage2);
+            galleryRoot.appendChild(sectionElement);
+        });
+    </script>
+</body>
+</html>

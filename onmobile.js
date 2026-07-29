@@ -1,11 +1,7 @@
-// Detect if user is on mobile and show warning popup
 (function() {
-    // Check if device is mobile
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-        || window.innerWidth <= 768;
-    
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     if (isMobile) {
-        // Create popup overlay
         const overlay = document.createElement('div');
         overlay.style.cssText = `
             position: fixed;
@@ -20,7 +16,6 @@
             z-index: 9999;
         `;
         
-        // Create popup box
         const popup = document.createElement('div');
         popup.style.cssText = `
             background-color: black;
@@ -33,7 +28,6 @@
             font-family: 'Comic Mono', monospace;
         `;
         
-        // Create close button
         const closeBtn = document.createElement('button');
         closeBtn.textContent = 'X';
         closeBtn.style.cssText = `
@@ -51,7 +45,6 @@
             font-family: 'Comic Mono', monospace;
         `;
         
-        // Create message
         const message = document.createElement('p');
         message.textContent = 'this website was made to be viewed on desktop. it might be very broken on mobile. good luck';
         message.style.cssText = `
@@ -59,17 +52,14 @@
             line-height: 1.5;
         `;
         
-        // Close popup when X is clicked
         closeBtn.onclick = function() {
             document.body.removeChild(overlay);
         };
         
-        // Assemble popup
         popup.appendChild(closeBtn);
         popup.appendChild(message);
         overlay.appendChild(popup);
         
-        // Add to page when DOM is ready
         if (document.body) {
             document.body.appendChild(overlay);
         } else {
