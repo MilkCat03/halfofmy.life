@@ -1,0 +1,124 @@
+html {
+	background-repeat: repeat;
+	background-size: auto;
+	font-family: "Comic Mono", monospace;
+	font-size: 1.3rem;
+	scroll-behavior: smooth;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	overflow-x: hidden;
+	text-align: center;
+	margin: 20px;
+}
+
+#content {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 98%;
+	height: auto;
+}
+
+.blogPost {
+	padding: 15px;
+	width: auto;
+	height: auto;
+	margin: 0 auto 20px auto;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+p {
+	text-align: left;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.small-image {
+	width: 20%;
+	height: auto;
+}
+
+a:target {
+	background-color: rgb(255, 0, 0);
+}
+
+#backToTop {
+	position: fixed;
+	right: 1rem;
+	bottom: 1rem;
+	z-index: 1000;
+	display: inline-block;
+	padding: 0.6rem 0.8rem;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1.2;
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+i {
+	font-family: "Dynalight", cursive;
+	font-size: 1.5rem;
+	color: lightblue;
+}
+
+b {
+	font-family: "Eater", serif;
+	color: darkred;
+}
+
+.fire-text {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #fff;
+	text-shadow:
+		0 -1px 3px #fff,
+		0 -2px 6px #FF3,
+		0 -6px 12px #F90,
+		0 -10px 20px #C33;
+}
+
+.wadiohead {
+	font-family: "Nabla", system-ui;
+}
+
+.small-text {
+	font-size: 0.7rem;
+	text-decoration: line-through;
+	color: red;
+}
+
+.hidden {
+	background-color: black;
+	color: black;
+	margin-top: 0px;
+}
+
+.hidden::selection {
+	background-color: #fff;
+	color: #000;
+}
+
+iframe {
+	width: 98%;
+	height: 100%;
+	min-height: 250px;
+	border: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+	margin-bottom: 10px;
+}
