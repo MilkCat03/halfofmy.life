@@ -9,11 +9,14 @@
             @import url('https://fonts.googleapis.com/css2?family=Dynalight&family=Eater&family=Nabla&display=swap');
 
             html {
-                background-color: transparent;
+                background-image: url("../media/wallpaper.png");
+                background-repeat:repeat;
+                background-size: auto;
                 font-family: "Comic Mono";
                 margin: 0;
                 padding: 0;
                 font-size: 1.3rem;
+                scroll-behavior: smooth;
             }
 
             body {
@@ -44,9 +47,11 @@
             }
 
             img{
-                width: 40%;
+                width: 100%;
                 height: auto;
                 display: block;
+                margin-top: 20px;
+                margin-bottom: 20px;
             }
 
             i{
@@ -82,11 +87,100 @@
                 color:red;
             }
 
+            #sidebarContainer {
+                background-color: black;
+                position: absolute;
+                height:auto;
+                width:23.5%;
+                margin-left: 10px;
+                margin-top: 10px;
+                text-align: left;
+                
+            }
+
+            #sideBar {
+                padding: 0.75rem;
+                font-weight: bold;
+                margin: 0;
+                text-align: left;
+            }
+
+            #sideBar ul {
+                list-style: none;
+                padding-left: 0.75rem;
+                margin: 0;
+                text-align: left;
+            }
+
+            #sideBar p {
+                margin: 0 0 0.5rem 0;
+                text-align: left;
+            }
+
+            h1{
+                color:white;
+                text-align: center;
+                margin-bottom:0px;
+            }
+
+            .hidden{
+                background-color: black;
+                color:black;
+                margin-top: 0px;
+            }
+
+            #sideBar p:nth-child(8n + 1) a { color: rgb(247, 238, 73); }
+            #sideBar p:nth-child(8n + 2) a { color: rgb(70, 134, 198); }
+            #sideBar p:nth-child(8n + 3) a { color: rgb(243, 101, 37); }
+            #sideBar p:nth-child(8n + 4) a { color: rgb(69, 182, 74); }
+            #sideBar p:nth-child(8n + 5) a { color: rgb(237, 180, 31); }
+            #sideBar p:nth-child(8n + 6) a { color: rgb(236, 36, 39); }
+            #sideBar p:nth-child(8n + 7) a { color: rgb(164, 221, 230); }
+
+            a:target {
+                background-color: rgb(255, 0, 0);
+            }
+
+            #backToTop {
+                position: fixed;
+                right: 1rem;
+                bottom: 1rem;
+                z-index: 1000;
+                display: inline-block;
+                padding: 0.6rem 0.8rem;
+                background-color: black;
+                color: white;
+                border: 2px solid white;
+                text-decoration: none;
+                font-weight: bold;
+                line-height: 1.2;
+                text-align: center;
+            }
+
+            .small-image{
+                width:20%;
+                height:auto;
+            }
         </style>
     </head>
     <body>
+        <a id="top"></a>
+        <a id="backToTop" href="#top">⬆<br>go up</a>
+        <div id="sidebarContainer">
+            <div id="sideBar">
+            <h1>blog entries:</h1>
+            <hr>
+            <ul>
+                <p><a href="#firstPost">04/02/2026-first blog post</a></p>
+                <p><a href="#lifeUpdates">06/03/2026-life updates</a></p>
+                <p><a href="#albumingPart1">08/05/2026-albuming (part 1)</a></p>
+                <p><a href="#albumingPart2">08/05/2026-albuming (part 2)</a></p>
+                <p><a href="#albumingPart3">08/05/2026-albuming (part 3)</a></p>
+            </ul>
+        </div>
+        </div>
         <div class="blogPost">
-            <h1 class="fire-text">hi this is my first "blog?" post | 4/2/2026 | 7:10AM</h1>
+            <h1 class="fire-text">hi this is my first "blog?" post | <a name="firstPost">4/2/2026</a> | 7:10AM</h1>
             <p></p>
             <p>i dont know if anyone is gonna read this ever. might just be something for the google website crawlers to index. but it would be really cool if someone did read this.</p>
             <p>im working on music stuff. right now im working on a song called... something.</p>
@@ -178,7 +272,7 @@
         </div>
 
         <div class="blogPost">
-            <h1 class="fire-text">more bullshit (life updates) | 6/3/2026 | 11:07pm</h1>
+            <h1 class="fire-text">more bullshit (life updates) | <a name="lifeUpdates">6/3/2026</a> | 11:07pm</h1>
             <p><i>im so fucking tired of CPS (less than three)</i></p>
             <p>heres the <span class="fire-text">dilemea</span>. cps is actual <i>bullshit</i>.</p>
             <p>i have <i>sensory issues</i>. i have for my entire life. all 15 years. (which isnt a lot i think)</p>
@@ -238,6 +332,123 @@
             <p>goodbye beautiful people</p>
         </div>
         </div>
+        </div>
+        <div class="blogPost">
+            <h1 class="fire-text">so uh. hi. idk who still reads these. i made somemthing. | <a name="albumingPart1">8/5/2026</a> | 1:12am</h1>
+            <p><i>im working on my album. so uh. yeah. that's cool.</i></p>
+            <p>i'm also working on this website. which sucks. i updated the logo.</p>
+            <p>im <b>16</b> now if you didn't know. it happened on the 27th of july. i know. scary.</p>
+            <p><i>what the fuck am i supposed to do now?</i></p>
+            <p>i don't know. the dread is setting in on me.</p>
+            <p>alright. lets start <i>albuming.</i></p>
+        </div>
+        <div class="blogPost">
+            <h1 class="fire-text">ALBUMING PART 2 | <a name="albumingPart2">8/5/2026</a> | 1:18pm</h1>
+            <p><b>I FELL THE FUCK ASLEEP.</b></p>
+            <p>so here is my album. kinda. work in progress</p>
+            <p>(please help me. i cannot stay focused.)</p>
+            <img src="images/album stuff/IMG_0919.jpg">
+            <p>this song is actually <i>torturous.</i></p>
+            <p>it has such a strong feeling in my chest that is hard to articulate in sound.</p>
+            <p>but it's good when i do it right.</p>
+            <audio controls>
+                <source src="audio/New Recording 634.m4a" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <img src="images/album stuff/IMG_0920.jpg">
+            <p>no clue what this is. but it is in open f. so it's a real string snapper. fun to play tho.</p>
+            <img src="images/album stuff/IMG_0921.jpg">
+            <p>don't even know if this will go on the album. it's a lot more intimate than the rest of the songs i think.</p>
+            <p>too intimate. even for me.</p>
+            <p>and it's just a little thing. it can't take the stress of an album.</p>
+            <img src="images/album stuff/IMG_0922.jpg">
+            <p>the end always makes me cry on this one.</p>
+            <p>probably because of <a href="../scan-ins/spongebob.html#death">this</a> from the spongebob journal incident.</p>
+            <p>wizard thinks im a genius. i think im just walking the line between average life and divine intelligence. or i've gone fucking crazy. one or the other.</p>
+            <p>also this song is fun to rock to. start rocking when you play music. and moving. moving helps. dont just sit still. you weirdo. freak.</p>
+            <img src="images/album stuff/IMG_0923.jpg">
+            <p>this one is a classic. beauitful classic.</p>
+            <p>problem is, i've done this one for so long the style has changed on it.</p>
+            <p><i>is that a good thing, or a bad thing?</i></p>
+            <span class="fire-text">I DONT FUCKING KNOW</span>
+            <img src="images/album stuff/IMG_0924.jpg">
+            <p>this one. omg.</p>
+            <p>im experiementing with some billie ellish ass whisper tones.</p>
+            <p>its so good. i love this song.</p>
+            <img src="images/album stuff/IMG_0925.jpg">
+            <p>OOOHH I PRRROMISEEE!!111111</p>
+            <p>this is it.</p>
+            <p>this is the song i want to be remembered by if i die early.</p>
+            <p>this is THE song.</p>
+            <img src="images/album stuff/IMG_0926.jpg">
+            <p>bandlab slop that i forgot the chords of.</p>
+            <img src="images/album stuff/IMG_0927.jpg">
+            <p>this one is so fucking annoying.</p>
+            <p>running in CiiiIIrrclesss!</p>
+            <p>fuck you and your vocal flips, spunchbop.</p>
+            <p>why do you do this to yourself?</p>
+            <p>you could make easy pop music.</p>
+            <p>but no. you're a microlowkirkenuinenichehead who has a fixation on <span class="wadiohead">wadiohead</span></p>
+            <p><span class="small-text">(and i would have it any other fucking way right now)</span></p>
+            <img src="images/album stuff/IMG_0928.jpg">
+            <p>this one is simple. and dull. and kind of hhhudgfguhdgfhufdgufdfhugd.</p>
+            <p>it's nicknamed "from the hospital phone" because it kinda feels...</p>
+            <p><span class="small-text">like the iron in your throat after an overdose</span></p>
+            <p>but in a metaphorical way.</p>
+            <p>also experiementing with whisper stuff on this one. <i>WOOOOHOOO</i></p>
+            <p><i>omg i love this fuckass font.</i></p>
+            <p><i>goo goo... gah gah?</i></p>
+            <img src="images/album stuff/IMG_0929.jpg">
+            <p>I MADE THIS ONE IN THE DESERT.</p>
+            <p>i'm saying that because this very much feels like a desert song.</p>
+            <p>not because my vocals are dry. just because. fuck.</p>
+            <p><span class="small-text">like everyone has given up on you. and the feeling of cold tile against your face, curled up in a fetal position in a mess of your own tears and snot.</span></p>
+            <p>so uh. yeah.</p>
+            <p>you'll crawl into my arms again is done in the third person.</p>
+            <p>i don't think i experience <i>physical attraction</i></p>
+            <p><b>but then again, what hot bitches are there in vegas?</b></p>
+            <p>and trying to be the better man.</p>
+            <p><span class="small-text">author is AFAB. but gender nonconforming.</span></p>
+            <p>it's difficult because i only listen to male singers. though i am opening up to female voices.</p>
+            <p>it's like me not liking shrimp because of it's shape, color, and name.</p>
+            <p>the same feeling but translate that to music. and you'll start to realize my therapist is right about every word she says about me.</p>
+            <p><span class="small-text">she says im on the spectrum.</span></p>
+            <p><span class="small-text">fuck.</span></p>
+            <img src="images/album stuff/IMG_0930.jpg">
+            <p>also wrote this one in the desert.</p>
+            <p>it feels like the color grey. but like. psychiatric ward grey.</p>
+            <p><i>group therapy grey, if i must.</i></p>
+            <p>but the skies don't feel so grey.</p>
+            <p>i wrote this when it felt so fucking bleak.</p>
+            <p><i>it's all bleak</i></p>
+            <p>but you <span class="wadiohead">LIBERALS</span> can't comprehend that everything is <i>bleak!</i></p>
+            <p><span class="small-text">ACAB. FUCK ICE. FUCK TRUMP. FUCK MAGA. JUSTICE FOR THE EPSTIEN VICTIMS. DISTRIBUTE BILLIONARES WEALTH VIA TAXES. STEAL FROM BIG CORPORATIONS.</span></p>
+        </div>
+        <div class="blogPost">
+            <h1 class="fire-text">ALBUMING PART 3 | <a name="albumingPart3">8/5/2026</a> | 6:17pm</h1>
+            <p><i>I CANT FUCKING FOCUS IN THIS HOUSE FOR ONE GOD DAMN SECOND.</i></p>
+            <p>...</p>
+            <p>hi. it's me again.</p>
+            <p>can i just finish this. people are fucking texting me. oh my god.</p>
+            <p>this is a name i thought of.</p>
+            <img src="images/album stuff/art/terrors of tommorow bg.jpg">
+            <p>here is the original photo it came from!!! cut up a magazine for it. cause im uh. idk. niche.</p>
+            <p>is telling you what it means bad? i don't know.</p>
+            <p><i>(highlight this with your cursor if you want an explaination.)</i><span class="hidden">the whole album is about the childhood i missed out on. hence the name "half of my life". totally not taken from radiohead's daydreaming. (which i bawled my fucking eyes out to for three hours straight when i first heard it). it's me mourning the childhood i never had bc of cps and abuse. terrors of tommorow. you NEVER know what will happen next. if you'll be taken by a caseworker, or if you'll be taken to a hospital, or taken to a holding center. so. yeah.</span></p>
+            <p>here's my branding if i ever get uh. famous. or anything. hah. (contact me, talk to me. im so bored. i want to be interviewed.)</p>
+            <img class="small-image" src="images/album stuff/art/branding.png">
+            <p>it's 8:54pm. i just went through an incident involving violence. trapped behind doors again. its ok though. ill finish this out.</p>
+            <p>MY SIGNATURE. (if you ever want to fake it). its a guitar. hahahah. im so unique.</p>
+            <img src="images/album stuff/signature.png">
+            <p>here is the base of the album art.</p>
+            <img src="images/album stuff/art/base.jpg">
+            <p>a section from the <a href="../art/index.html#album-art">bigger piece</a> of art. done in ink, not paint. i am NOT a painter.</p>
+            <img src="../art/images/nonpen/IMG_0977.jpeg">
+            <p>i did a method i heard from a kid amnesiac interview and taped it all to my wall and took out my frustrations on it. if you're reading this as my therapist. are you proud of me?</p>
+            <p>and here's how i'm working to make the album look right now.</p>
+            <img src="images/album stuff/art/album art concept logo.png">
+            <p>i'm pretty happy with it. let me know what you think though.</p>
+            <p>remember. im lonely. and my discord tag is <a href="https://discord.com/users/1374164585854271599">"sponch_b0p".</a> hmu.</p>
         </div>
     </body>
 </html>

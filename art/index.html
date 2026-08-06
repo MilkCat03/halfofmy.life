@@ -38,7 +38,7 @@
             font-size: 50px;
             margin-top: 10px;
             margin-bottom: 10px;
-            color:white;
+            color:rgb(0, 217, 255);
             text-align:center;
             -webkit-text-stroke: 3px black;
 
@@ -75,6 +75,7 @@
 
         .gallerySection {
             margin-bottom: 30px;
+            scroll-margin-top: 120px;
         }
 
         .gallerySection h3 {
@@ -83,20 +84,20 @@
 
         .sectionDivider {
             display: block;
-            width: min(720px, 92%);
-            max-height: 220px;
+            width: min(900px, 92%);
+            max-height: 4500px;
             object-fit: cover;
             margin: 0 auto 18px;
-            border: 2px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
         }
 
         .galleryContent {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, min(900px, 100%)));
             gap: 15px;
             justify-content: center;
-            width:95%;  
+            align-items: start;
+            width: min(100%, 2000px);
+            margin: 0 auto;
         }
 
         .galleryContent img {
@@ -104,6 +105,45 @@
             max-width: 100%;
             height: auto;
             object-fit: contain;
+            cursor: zoom-in;        
+        }
+
+        .imageModal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 1000;
+        }
+
+        .imageModal.open {
+            display: flex;
+        }
+
+        .imageModal img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .imageModalClose {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 42px;
+            cursor: pointer;
+            line-height: 1;
+            overflow: hidden;
+        }
+
+        body.modal-open {
+            overflow: hidden;
         }
 
         @media (max-width: 800px) {
@@ -116,7 +156,7 @@
             font-size: 40px;
             margin-top: 10px;
             margin-bottom: 10px;
-            color:white;
+            color:rgb(183, 250, 255);
             text-align:center;
             -webkit-text-stroke: 3px black;
         }
@@ -146,10 +186,14 @@
         <hr>
         <div id="gallery"></div>
     </div>
+    <div id="imageModal" class="imageModal" aria-hidden="true">
+        <button id="imageModalClose" class="imageModalClose" aria-label="Close image">&times;</button>
+        <img id="imageModalImage" alt="Expanded artwork">
+    </div>
     <script>
         const gallerySections = [
              {
-                title: 'relatives house',
+                title: 'relatives-house',
                 images: [
                     'images/relatives/IMG_0471.JPG',
                     'images/relatives/IMG_0535.JPG',
@@ -159,7 +203,7 @@
                 ]
             },
             {
-                title: 'church chronicles',
+                title: 'church-chronicles',
                 images: [
                     'images/church chronicles/IMG_0466.JPG',
                     'images/church chronicles/IMG_0470.JPG',
@@ -171,19 +215,8 @@
                     'images/church chronicles/IMG_0536.JPG'
                 ]
             },
-             {
-                title: 'nonpen',
-                images: [
-                    'images/nonpen/IMG_0464.JPG',
-                    'images/nonpen/IMG_0465.JPG',
-                    'images/nonpen/IMG_0467.JPG',
-                    'images/nonpen/IMG_0478.JPG',
-                    'images/nonpen/IMG_0479.jpg',
-                    'images/nonpen/IMG_0482.jpg'
-                ]
-            },
             {
-                title: 'bluey notebook',
+                title: 'bluey-notebook',
                 images: [
                     'images/bluey notebook/IMG_0477.JPG',
                     'images/bluey notebook/IMG_0486.JPG',
@@ -224,7 +257,7 @@
                 ]
             },
             {
-                title: 'music notebook',
+                title: 'music-notebook',
                 images: [
                     'images/music notebook/IMG_0474.JPG',
                     'images/music notebook/IMG_0475.JPG',
@@ -241,21 +274,74 @@
                     'images/unfinished/IMG_0527.JPG'
                 ]
             },
+                        {
+                title: 'album-art',
+                images: [
+                    'images/nonpen/IMG_0978.jpeg',
+                    'images/nonpen/IMG_0977.jpeg',
+                    'images/nonpen/IMG_0980.jpeg',
+                    'images/nonpen/IMG_0981.jpeg'
+                ]
+            },
             {
-                title: 'text oriented',
+                title: 'text-oriented',
                 images: [
                     'images/text oriented/IMG_0507.JPG',
                     'images/text oriented/IMG_0512.JPG',
                     'images/text oriented/IMG_0516.JPG'
                 ]
+            },
+            {
+                title: 'nonpen',
+                images: [
+                    'images/nonpen/IMG_0464.JPG',
+                    'images/nonpen/IMG_0465.JPG',
+                    'images/nonpen/IMG_0467.JPG',
+                    'images/nonpen/IMG_0478.JPG',
+                    'images/nonpen/IMG_0482.jpg',
+                    'images/nonpen/IMG_0479.jpg'
+                ]
             }
         ];
 
         const galleryRoot = document.getElementById('gallery');
+        const imageModal = document.getElementById('imageModal');
+        const imageModalImage = document.getElementById('imageModalImage');
+        const imageModalClose = document.getElementById('imageModalClose');
+
+        function openImage(src, alt) {
+            imageModalImage.src = src;
+            imageModalImage.alt = alt;
+            imageModal.classList.add('open');
+            imageModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeImage() {
+            imageModal.classList.remove('open');
+            imageModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+            imageModalImage.removeAttribute('src');
+            imageModalImage.alt = '';
+        }
+
+        imageModalClose.addEventListener('click', closeImage);
+        imageModal.addEventListener('click', (event) => {
+            if (event.target === imageModal) {
+                closeImage();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeImage();
+            }
+        });
 
         gallerySections.forEach((section) => {
             const sectionElement = document.createElement('section');
             sectionElement.className = 'gallerySection';
+            sectionElement.id = section.title;
 
             const titleElement = document.createElement('h3');
             titleElement.innerHTML = `<b>${section.title}</b>`;
@@ -269,6 +355,7 @@
                 const image = document.createElement('img');
                 image.src = src;
                 image.alt = section.title;
+                image.addEventListener('click', () => openImage(src, section.title));
                 contentElement.appendChild(image);
             });
 
