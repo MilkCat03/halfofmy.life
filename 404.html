@@ -1,62 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .container {
-            text-align: center;
-            color: white;
-        }
-        
-        h1 {
-            font-size: 120px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        p {
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-        
-        a {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-        
-        a:hover {
-            transform: scale(1.05);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>404</h1>
-        <p>Page Not Found</p>
-        <a href="/">Go Home</a>
-    </div>
-</body>
+<html>
+    <head>
+        <title>404 - not found</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
+        <style>
+            html{
+                background-image: url("media/404bg.jpg");
+                background-size: 1%;
+            }
+
+            body{
+                background-color: transparent;
+                color:white;
+                font-family: 'Times New Roman';
+                overflow:hidden;
+                margin:50px;
+            }
+
+            h1{
+                font-size: 70px;
+                margin: 10px;
+                text-align: center;
+            }
+
+            h2{
+                text-align: center;
+                font-size: 70px;
+                margin: 10px;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            h3{
+                font-size: 40px;
+                margin: 5px;
+            }
+
+            h5{
+                font-size: 30px;
+                margin: 5px;
+            }
+
+            p{
+                font-size: 20px;
+                margin: 5px;
+            }
+            
+            a{
+                color:blue;
+                font-size: 50px;
+            }
+
+            #centered {
+                text-align: center;
+                margin-top: 6%;
+            }
+
+            #fourohfour{
+                background-color: black;
+                width:100%;
+                height:89vh;
+            }
+
+            #bottomArrows {
+                margin-top:3%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="fourohfour">
+            <h2 id="topArrows"></h2>
+            <div id="centered">
+                <h1>!!! 404 NOT FOUND !!!</h1>
+                <p>oh no.</p>
+                <p>it seems as if we are both lost</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>and nobody is coming to save us</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>unless</p>
+                <p><a href="index.html">we go home. together</a></p>
+            </div>
+            <h2 id="bottomArrows"></h2>
+        </div>
+
+        <script>
+            const topArrows = document.getElementById('topArrows');
+            const bottomArrows = document.getElementById('bottomArrows');
+
+            const baseArrows = ['⬆', '⬇'];
+            const etc = ['☻', '⌂', "☹", "%", "&", "-", "■", "?", "✍", "✔", "✕", "⨸"];
+
+            function generateArrows(element) {
+                const count = Math.ceil(element.offsetWidth / 45); 
+                let str = '';
+                
+                for (let i = 0; i < count; i++) {
+                    const isEasterEgg = Math.random() < 0.005; 
+                    
+                    if (isEasterEgg) {
+                        str += etc[Math.floor(Math.random() * etc.length)];
+                    } else {
+                        str += baseArrows[Math.floor(Math.random() * baseArrows.length)];
+                    }
+                }
+                return str;
+            }
+
+            function updateAll() {
+                topArrows.textContent = generateArrows(topArrows);
+                bottomArrows.textContent = generateArrows(bottomArrows);
+            }
+
+            updateAll();
+            setInterval(updateAll, 500);
+            window.addEventListener('resize', updateAll);
+        </script>
+    </body>
 </html>

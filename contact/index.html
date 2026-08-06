@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>halfofmy.life</title>
+    
+    <style>
+        html {
+            font-family: "Comic Mono";
+            color:white;
+            background-image: url("../media/background.jpg");
+            background-size:500px;
+            background-position: center;
+            background-repeat: repeat;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 15px;
+            background-color: transparent;
+        }
+
+        #content {
+            padding: 15px;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 97.5%;
+            height: auto;
+            margin-top:5px;    
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color:rgb(253, 253, 253);
+            text-align:center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+
+        #images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        a{
+            color:aqua;
+        }
+
+        s{
+            color:red;
+        }
+
+        h3{
+            text-align: center;
+        }
+
+        #email{
+            text-align: center;
+        }
+
+        #email input{
+            background-color: transparent;
+            border: 2px solid #00fbff; 
+            color:white;
+        }
+
+        #email textarea{
+            background-color: transparent;
+            border: 2px solid #00fbff; 
+            width: 45%;
+            max-width: 45%;
+            height:250px;
+            max-height:250px;
+            color:white;
+        }
+
+        #email button{
+            width: 45%;
+            font-size: 1.2rem;
+            border: 2px solid #00fbff; 
+            color:white;
+            background-color: transparent;
+        }
+
+        #emailHeader{
+            width: 31%!important;;
+        }
+
+        p{
+            text-align: center;
+        }
+    </style>
+    <script src="../onmobile.js"></script>
+</head>
+<body>
+    <iframe src="../header.html"></iframe>
+    <div id="content">
+        <div id="header">
+            <hr>
+            <h1>so, you wanna contact me?</h1>
+            <hr>
+            <h3><s>cool. please do. im lonely.</s></h3>
+            <h3>MY DISCORD IS THE FASTEST WAY TO CONTACT ME. EVER. <a href="https://discord.com/users/1374164585854271599">"sponch_b0p"</a></h3>
+            <p>but if you're really old and decrepit and you don't have discord:</p>
+        </div>
+        <div id="email">
+            <hr>
+            <h3>for people with emails:</h3>
+            <hr>
+            <p>your personal email:<input id="emailInput"> your name:<input id="nameInput"></p>
+            <p>title of your inquiry: <input id="emailHeader"></p>
+            <textarea placeholder="your inquiry/question/anything" id="inquiryInput"></textarea>
+            <br><br>
+            <button onclick="composeEmail()">cool email composer ma-bobber.</button>
+            <p>if you do not put your actual email i cannot email to you back. so uh. please do that.</p>
+        </div>
+        <hr>
+
+        <script>
+            var emailInput = document.getElementById("emailInput");
+            var nameInput = document.getElementById("nameInput");
+            var inquiryInput = document.getElementById("inquiryInput"); 
+            var emailHeader = document.getElementById("emailHeader");
+
+            function composeEmail(){
+                const email = "spunchbop@halfofmy.life";
+                const subject = encodeURIComponent(emailHeader.value);
+                
+                const bodyText = `salutations, spunchbop of halfofmy.life. i am ${nameInput.value} sending you an email from ${emailInput.value}.\nthese are my words of wisdom:\n${inquiryInput.value}\nthe absolute bestest of regards,\n${nameInput.value}`;
+                const body = encodeURIComponent(bodyText);
+                
+                window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+            }
+        </script>
+    </div>
+</body>
+</html>
