@@ -1,113 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
-        <link rel="stylesheet" href="../theme.css">
-        <style>
-        html{
-            background-image: url('../media/background.jpg');
-            text-align: center;
+<head>
+    <title>MY music</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dynalight&family=Eater&family=Nabla&display=swap');
+
+        html {
             font-family: "Comic Mono";
-        }
-
-        a{
-            color:yellow;
-        }
-
-        .collapsed{
-            display: none;
-        }
-
-        p{
             color:white;
+            background-size:100px;
+            background-size:cover;
+            background-repeat: repeat-y;
         }
 
-        h1{
-            color:rgb(114, 113, 187);
+        body {
+            width: 98%;
+            height: 100%;
+            margin: 15px;
+            background-color: transparent;
         }
 
-        h3{
-            color:rgb(253, 255, 154);
+        #content {
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 97.5%;
+            height: auto;
+            margin-top:5px;    
         }
 
-        iframe{
+        h1 {
+            font-size: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color:rgb(0, 64, 255);
+            text-align:center;
+        }
+
+        #collapseThis {
+            display: none;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        iframe {
             width: 100%;
             height: 100%;
             min-height: 250px;
+            border: none;
+            margin: 0;
+            padding: 0;
+            display: block;
+            background-color: rgba(18, 2, 239, 0) !important;
+            filter: blur(0px) !important;
         }
 
-        #content{
-            background-color: rgba(0, 0, 0, 0.804);
+        #images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
         }
-        </style>
-        <script src="../onmobile.js"></script>
-    </head>
-    <body>
-        <div id="content">
-            <iframe src="../header.html"></iframe>
-            <br>
+        
+        a{
+            color:rgb(238, 252, 107);
+        }
 
-            <h3>this will be full one day. or not. idk lmao.</h3>
-            <p>my blog is updated a lot more <a href="../blog/index.html">here</a></p>
-            <hr>
-            
-            <div id="fullsongs">
-                <h1>full songs: <button onclick="toggleSection('fullsongs-content')">hide/show</button></h1>
-                <div id="fullsongs-content">
-                    <a href="i dont know why/">i dont know why/a dissapointment to my family</a>
-                    <br>
-                    
-                </div>
-            </div>
-            <hr>
+        p{
+            text-align: center;
+        }
 
-            <div id="demos">
-                <h1>demos: <button onclick="toggleSection('demos-content')">hide/show</button></h1>
-                <div id="demos-content">
-                    <p>demos im working on, actively or inactively</p>
-                    <a href="like emo or sum idfk/">i've (very old title: like emo or sum idfk)</a>
-                    <a href="lost it again/">self inflicted headaches (alt. lost it again)</a>
-                    <a></a>
-                </div>
-            </div>
-            <hr>
+        s{
+            color:red;
+        }
 
-            <div id="audiofragments">
-                <h1>audio fragments: <button onclick="toggleSection('audiofragments-content')">hide/show</button></h1>
-                <div id="audiofragments-content">
-                    <p>things i made that dont really have a place yet</p>
-                    
-                </div>
-            </div>
-            <hr>
-
-            <div id="lyricalfragments">
-                <h1>lyrical fragments/poetry: <button onclick="toggleSection('lyricalfragments-content')">hide/show</button></h1>
-                <div id="lyricalfragments-content">
-                    <p>poetry or lyrical fragments</p>
-                    
-                </div>
-            </div>
-            <div id="footer" style="text-align: center; color:white;">
-                <br>
-                <hr>
-                <p>made with love, spunchbop at halfofmy.life</p>
-                <p>issues? contact me: <a style="color:cornflowerblue!important" href="../contact/index.html">here!</a></p>
-                <hr>
-                <br>
-            </div>
-        </div>
-
-        <script>
-            function toggleSection(sectionId) {
-                var section = document.getElementById(sectionId);
-                if (section.style.display === "none") {
-                    section.style.display = "block";
-                } else {
-                    section.style.display = "none";
-                }
+        i{
+                font-family: "Dynalight", cursive;
+                font-size: 1.5rem;
+                color:lightblue;
             }
-        </script>
-    </body>
+
+            b{
+                font-family: "Eater", serif;
+                color:darkred;
+            }
+
+            .fire-text {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #fff;
+                
+                text-shadow: 
+                    0 -1px 3px #fff, 
+                    0 -2px 6px #FF3, 
+                    0 -6px 12px #F90, 
+                    0 -10px 20px #C33;
+            }
+
+            .wadiohead{
+                font-family: "Nabla", system-ui;
+            }
+
+            button{
+                width: 45%;
+                font-size: 1.2rem;
+                border: 2px solid #ff8c00; 
+                color:white;
+                background-color: transparent;
+            }
+
+            #list p{
+                text-align: left;
+                text-decoration: underline;
+                color:lightskyblue;
+            }
+
+            #content {
+                position: relative;
+                z-index:9999;
+            }
+    </style>
+    <script src="../onmobile.js"></script>
+    <script src="../scrollingTextBG.js"></script>
+</head>
+<body>
+    <iframe src="../header.html"></iframe>
+    <script>
+        createScrollingTextBG([
+            "time flies, doesn't it?",
+            "precariously placed trees",
+            "not able to breathe",
+            "wish i could've seen what you'd grow into",
+            "can't get clean.",
+            "watch my life circle down",
+            "darkness cold and",
+            "screaming loud",
+            "trembling pulling",
+            "all my hair out",
+            "gasping, lashing",
+            "blacking out",
+            "you weren't there",
+            "when i could've written my end",
+            "faceless regretment",
+            "wondering where it went wrong",
+            "lost, afraid",
+            "no going back home",
+            "frigid, naked, afraid",
+            "self inflicted headaches",
+            "split open left to ache",
+            "and i like things clearer",
+            "but you're frosted glass",
+            "i'll go ask the mirror",
+            "if this day will be my last",
+            "i am lost, you are lost",
+            "and im the cause",
+            "makes people feel like they NEED the product",
+            "stuck in past-time",
+            "is this goodbye?",
+            "and you'll laugh again",
+            "against the pavement",
+            "and we'll all wonder",
+            "what happened to you?",
+            "and you're talking in riddles",
+            "and i just don't understand",
+            "pacing in circles",
+            "tryna be the better man",
+            "and the days are getting clearer",
+            "and the sky doesn't seem so grey",
+            "my feet don't drag on pavement",
+            "and the people smile back at me",
+            "hopeless hoping",
+            "sleepless nights",
+            "wakeless mornings",
+            "sun will not rise.",
+            "leave me.",
+            "leave me behind.",
+            "and i'm running in circles",
+            "trapped behind doors again",
+            "oh please just hear me screaming",
+            "falling away from me",
+            "running away from me",
+            "and one day",
+            "ill finally be me",
+            "down the street",
+            "theres a kid",
+            "in a house",
+            "trapped again",
+            "there's no bright lights",
+            "to fill up the night",
+            "just stay alive",
+            "you'd look so pretty",
+            "numbers said, overfed.",
+            "pretty.",
+            "in a brief moment of your existence"
+        ]);
+    </script>
+
+    <div id="content">
+        <hr>
+        <h1>hello world!</h1>
+        <hr>
+        <p>want the old version of the music section? <a href="../archive/mymusic/index.html">click here</a></p>
+        <p>want this version? stay here.</p>
+        <p>i am 16 years old. (wow so old). if you're my webmaster don't read that.</p>
+        <p>i make music for myself. and other ppl i guess, but mostly myself.</p>
+        <p>it's like breadcrumbs for my past self. (which is profoundly sad, considering i'm just "a baby")</p>
+        <p>a lot of this will link you all over the website. if you middle click a <a href="#">hyperlink</a> you can open it in a new tab, rather than replacing the window.</p>
+        <p>which should work all around the web. you're welcome.</p>
+        <hr>
+        <ul id="list">
+            <p>four months away:</p>
+            <li><a href="../blog/index.html#four-months-away-1">ver 1 (shitty)</a></li>
+
+            <p>you'd look so pretty</p>
+            <li><a href="../blog/index.html#youd-look-so-pretty-1">rough recording</a></li>
+
+            <p>it's not easy</p>
+            <li><a href="../blog/index.html#its-not-easy-1">recorded this recovering from the flu</a></li>
+
+            <p>i like it</p>
+            <li><a href="../blog/index.html#i-like-it-1">hmmmmm</a></li>
+            
+        </ul>
+        <div id="footer" style="text-align: center;">
+            <hr>
+            <p>made with love, spunchbop at halfofmy.life</p>
+            <p>issues? contact me: <a href="contact/index.html">here!</a></p>
+            <hr>
+        </div>
+    </div>
+    <div id="overlay"></div>
+</body>
 </html>

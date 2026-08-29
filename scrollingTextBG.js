@@ -1,57 +1,103 @@
 (function () {
-    function createScrollingTextBG(text) {
-        if (!text) {
-            console.warn('createScrollingTextBG: no text provided');
+    const DEFAULT_TEXTS = [
+        "time flies, doesn't it?",
+        "precariously placed trees",
+        "not able to breathe",
+        "wish i could've seen what you'd grow into",
+        "can't get clean.",
+        "watch my life circle down",
+        "darkness cold and",
+        "screaming loud",
+        "trembling pulling",
+        "all my hair out",
+        "gasping, lashing",
+        "blacking out",
+        "you weren't there",
+        "when i could've written my end",
+        "faceless regretment",
+        "wondering where it went wrong",
+        "lost, afraid",
+        "no going back home",
+        "frigid, naked, afraid",
+        "self inflicted headaches",
+        "split open left to ache",
+        "and i like things clearer",
+        "but you're frosted glass",
+        "i'll go ask the mirror",
+        "if this day will be my last",
+        "i am lost, you are lost",
+        "and im the cause",
+        "makes people feel like they NEED the product",
+        "stuck in past-time",
+        "is this goodbye?",
+        "and you'll laugh again",
+        "against the pavement",
+        "and we'll all wonder",
+        "what happened to you?",
+        "and you're talking in riddles",
+        "and i just don't understand",
+        "pacing in circles",
+        "tryna be the better man",
+        "and the days are getting clearer",
+        "and the sky doesn't seem so grey",
+        "my feet don't drag on pavement",
+        "and the people smile back at me",
+        "hopeless hoping",
+        "sleepless nights",
+        "wakeless mornings",
+        "sun will not rise.",
+        "leave me.",
+        "leave me behind.",
+        "and i'm running in circles",
+        "trapped behind doors again",
+        "oh please just hear me screaming",
+        "falling away from me",
+        "running away from me",
+        "and one day",
+        "ill finally be me",
+        "down the street",
+        "theres a kid",
+        "in a house",
+        "trapped again",
+        "there's no bright lights",
+        "to fill up the night",
+        "just stay alive",
+        "you'd look so pretty",
+        "numbers said, overfed.",
+        "pretty.",
+        "in a brief moment of your existence",
+    ];
+
+    function randomFrom(list) {
+        return list[Math.floor(Math.random() * list.length)];
+    }
+
+    function createScrollingTextBG(textOptions) {
+        const textList = Array.isArray(textOptions)
+            ? textOptions.filter(Boolean)
+            : typeof textOptions === 'string' && textOptions.trim()
+                ? [textOptions]
+                : DEFAULT_TEXTS;
+
+        if (!textList.length) {
+            console.warn('createScrollingTextBG: no valid text provided');
             return;
         }
 
-        // ================= CONFIG =================
         const CONFIG = {
-            text: text,
             fontSize: 24,
-            lineSpacing: 18,
-            minSpeed: 1,
-            maxSpeed: 1.6,
-            minOpacity: 0.15,
-            maxOpacity: 0.3,
-            backgroundColor: '#111',
-            textColor: 'white',
+            lineHeight: 40,
+            minSpeed: 0.4,
+            maxSpeed: 2.2,
+            minOpacity: 0.12,
+            maxOpacity: 0.45,
+            backgroundColor: '#111111',
+            textColor: '#ffffff',
             maxRows: 50,
-            fadeDistance: 300, // px distance for fade in/out
-            xOffset: -500, // Start text further off-screen for smoother fade-in
-            wordSpacing: 0, // Space between words
+            fadeDistance: 600,
+            gap: 120
         };
 
-        // ================= HELPERS =================
-        // Split text into words while preserving spaces
-        function splitIntoWords(text) {
-            // Split by spaces but keep spaces as separate elements
-            const parts = [];
-            let currentWord = '';
-            
-            for (let i = 0; i < text.length; i++) {
-                const char = text[i];
-                if (char === ' ') {
-                    if (currentWord) {
-                        parts.push(currentWord);
-                        currentWord = '';
-                    }
-                    parts.push(' ');
-                } else {
-                    currentWord += char;
-                }
-            }
-            
-            if (currentWord) {
-                parts.push(currentWord);
-            }
-            
-            return parts;
-        }
-
-        const words = splitIntoWords(CONFIG.text);
-
-        // ================= CANVAS =================
         const canvas = document.createElement('canvas');
         canvas.id = 'bg-canvas';
         Object.assign(canvas.style, {
@@ -63,61 +109,96 @@
             zIndex: '-1',
             pointerEvents: 'none',
             backgroundColor: CONFIG.backgroundColor,
+            opacity: '1'
         });
 
         document.body.prepend(canvas);
 
         const ctx = canvas.getContext('2d');
+        const rows = [];
+        let lastFrame = 0;
 
-        // ================= STATE =================
-        let textPositions = [];
-        let running = true;
-        let textWidth, lastFrame = 0;
+        function buildPhrase() {
+            const count = 2 + Math.floor(Math.random() * 3);
+            const picked = [];
+            const pool = [...textList];
 
-        // ================= TEXT CACHE =================
-        function buildTextTexture() {
+            for (let i = 0; i < count && pool.length; i++) {
+                const index = Math.floor(Math.random() * pool.length);
+                picked.push(pool.splice(index, 1)[0]);
+            }
+
+            return picked.join(' - ');
+        }
+
+        function resetRow(row) {
+            row.text = buildPhrase();
+            row.speed = CONFIG.minSpeed + Math.random() * (CONFIG.maxSpeed - CONFIG.minSpeed);
+            row.opacity = CONFIG.minOpacity + Math.random() * (CONFIG.maxOpacity - CONFIG.minOpacity);
+            row.width = ctx.measureText(row.text).width;
+            row.offset = -Math.random() * canvas.width - row.width - 120;
+        }
+
+        function buildRows() {
+            const rowCount = Math.min(Math.ceil(canvas.height / CONFIG.lineHeight), CONFIG.maxRows);
+            rows.length = 0;
+
             ctx.font = `${CONFIG.fontSize}px Comic Mono, monospace`;
-            const rows = Math.min(Math.ceil(canvas.height / (CONFIG.fontSize + CONFIG.lineSpacing)), CONFIG.maxRows);
-            
-            // Calculate total width of all words with spacing
-            const wordWidths = words.map(w => ctx.measureText(w).width);
-            const totalWordWidth = wordWidths.reduce((a, b) => a + b, 0) + (words.length - 1) * CONFIG.wordSpacing;
-            
-            textPositions = [];
-            for (let row = 0; row < rows; row++) {
-                const rowSpeed = CONFIG.minSpeed + Math.random() * (CONFIG.maxSpeed - CONFIG.minSpeed);
-                const numRepeats = Math.ceil((canvas.width + Math.abs(CONFIG.xOffset) + CONFIG.fadeDistance) / totalWordWidth) + 2;
-                
-                for (let repeat = 0; repeat < numRepeats; repeat++) {
-                    let xPos = repeat * totalWordWidth + CONFIG.xOffset;
-                    
-                    for (let i = 0; i < words.length; i++) {
-                        textPositions.push({
-                            word: words[i],
-                            x: xPos,
-                            y: row * (CONFIG.fontSize + CONFIG.lineSpacing),
-                            speed: rowSpeed,
-                            baseOpacity: CONFIG.minOpacity + Math.random() * (CONFIG.maxOpacity - CONFIG.minOpacity),
-                            width: wordWidths[i]
-                        });
-                        xPos += wordWidths[i] + CONFIG.wordSpacing;
-                    }
-                }
+
+            for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+                const row = {
+                    text: '',
+                    speed: 0,
+                    opacity: 0,
+                    width: 0,
+                    offset: 0,
+                    y: rowIndex * CONFIG.lineHeight + 20 + Math.random() * 12
+                };
+                resetRow(row);
+                rows.push(row);
             }
         }
 
-        // ================= INIT =================
         function resize() {
             const dpr = window.devicePixelRatio || 1;
-
             canvas.width = window.innerWidth * dpr;
             canvas.height = window.innerHeight * dpr;
-
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            buildTextTexture();
+            ctx.textBaseline = 'top';
+            buildRows();
         }
 
-        // ================= LOOP =================
+        function drawRow(row) {
+            const phraseWidth = row.width;
+            const cycleLength = phraseWidth + CONFIG.gap;
+            const repeats = Math.ceil((canvas.width + cycleLength * 2) / cycleLength) + 2;
+
+            for (let i = -1; i < repeats; i++) {
+                const x = row.offset + i * cycleLength;
+                const endX = x + phraseWidth;
+                let alpha = row.opacity;
+
+                if (x < 0) {
+                    alpha *= Math.max(0, (x + cycleLength) / cycleLength);
+                }
+
+                if (endX > canvas.width) {
+                    alpha *= Math.max(0, (canvas.width - x) / CONFIG.fadeDistance);
+                }
+
+                if (alpha > 0.01 && x < canvas.width + CONFIG.fadeDistance && endX > -CONFIG.fadeDistance) {
+                    ctx.fillStyle = `rgba(255,255,255,${Math.min(1, alpha)})`;
+                    ctx.fillText(row.text, x, row.y);
+                }
+            }
+
+            row.offset += row.speed;
+
+            if (row.offset > canvas.width + phraseWidth + CONFIG.gap) {
+                resetRow(row);
+            }
+        }
+
         function animate(now) {
             if (now - lastFrame < 16) {
                 requestAnimationFrame(animate);
@@ -130,62 +211,14 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.font = `${CONFIG.fontSize}px Comic Mono, monospace`;
 
-            // Smooth easing function (ease-in-out cubic)
-            const easeInOutCubic = (t) => {
-                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-            };
-
-            for (let i = 0; i < textPositions.length; i++) {
-                const pos = textPositions[i];
-                const wordEndX = pos.x + pos.width;
-
-                // Use baseOpacity for variation
-                let opacity = pos.baseOpacity;
-
-                // Fade in from xOffset to x=0 with smooth easing
-                if (pos.x < 0) {
-                    const fadeProgress = (pos.x - CONFIG.xOffset) / (-CONFIG.xOffset);
-                    opacity *= easeInOutCubic(fadeProgress);
-                } 
-                // Fade out each word individually as it approaches the right edge
-                else if (wordEndX > canvas.width - CONFIG.fadeDistance) {
-                    const fadeProgress = (canvas.width - wordEndX) / CONFIG.fadeDistance;
-                    opacity *= easeInOutCubic(Math.max(0, fadeProgress));
-                }
-
-                // Clamp opacity
-                opacity = Math.max(0, Math.min(opacity, 1));
-
-                // Only draw if visible
-                if (opacity > 0.01 && pos.x < canvas.width && wordEndX > 0) {
-                    ctx.fillStyle = `rgba(255,255,255,${opacity})`;
-                    ctx.fillText(pos.word, pos.x, pos.y);
-                }
-
-                pos.x += pos.speed;
-                
-                // Reset word position when it goes off screen
-                if (pos.x > canvas.width + CONFIG.fadeDistance) {
-                    // Calculate total width for reset
-                    const wordWidths = words.map(w => ctx.measureText(w).width);
-                    const totalWordWidth = wordWidths.reduce((a, b) => a + b, 0) + (words.length - 1) * CONFIG.wordSpacing;
-                    pos.x -= totalWordWidth * Math.ceil((pos.x - CONFIG.xOffset) / totalWordWidth);
-                }
-            }
+            rows.forEach(drawRow);
             requestAnimationFrame(animate);
         }
 
-        // ================= VISIBILITY =================
-        document.addEventListener('visibilitychange', () => {
-            running = !document.hidden;
-        });
-
-        // ================= START =================
         resize();
         window.addEventListener('resize', resize);
         requestAnimationFrame(animate);
     }
 
-    // Expose globally
     window.createScrollingTextBG = createScrollingTextBG;
 })();

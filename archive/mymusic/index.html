@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
+        <link rel="stylesheet" href="../theme.css">
+        <style>
+        html{
+            background-image: url('../media/background.jpg');
+            text-align: center;
+            font-family: "Comic Mono";
+        }
+
+        a{
+            color:yellow;
+        }
+
+        .collapsed{
+            display: none;
+        }
+
+        p{
+            color:white;
+        }
+
+        h1{
+            color:rgb(114, 113, 187);
+        }
+
+        h3{
+            color:rgb(253, 255, 154);
+        }
+
+        iframe{
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+        }
+
+        #content{
+            background-color: rgba(0, 0, 0, 0.804);
+        }
+        </style>
+        <script src="../onmobile.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <iframe src="../../header.html"></iframe>
+            <br>
+
+            <h3>this will be full one day. or not. idk lmao.</h3>
+            <p>my blog is updated a lot more <a href="../blog/index.html">here</a></p>
+            <hr>
+            
+            <div id="fullsongs">
+                <h1>full songs: <button onclick="toggleSection('fullsongs-content')">hide/show</button></h1>
+                <div id="fullsongs-content">
+                    <a href="i dont know why/">i dont know why/a dissapointment to my family</a>
+                    <br>
+                    
+                </div>
+            </div>
+            <hr>
+
+            <div id="demos">
+                <h1>demos: <button onclick="toggleSection('demos-content')">hide/show</button></h1>
+                <div id="demos-content">
+                    <p>demos im working on, actively or inactively</p>
+                    <a href="like emo or sum idfk/">i've (very old title: like emo or sum idfk)</a>
+                    <a href="lost it again/">self inflicted headaches (alt. lost it again)</a>
+                    <a></a>
+                </div>
+            </div>
+            <hr>
+
+            <div id="audiofragments">
+                <h1>audio fragments: <button onclick="toggleSection('audiofragments-content')">hide/show</button></h1>
+                <div id="audiofragments-content">
+                    <p>things i made that dont really have a place yet</p>
+                    
+                </div>
+            </div>
+            <hr>
+
+            <div id="lyricalfragments">
+                <h1>lyrical fragments/poetry: <button onclick="toggleSection('lyricalfragments-content')">hide/show</button></h1>
+                <div id="lyricalfragments-content">
+                    <p>poetry or lyrical fragments</p>
+                    
+                </div>
+            </div>
+            <div id="footer" style="text-align: center; color:white;">
+                <br>
+                <hr>
+                <p>made with love, spunchbop at halfofmy.life</p>
+                <p>issues? contact me: <a style="color:cornflowerblue!important" href="../contact/index.html">here!</a></p>
+                <hr>
+                <br>
+            </div>
+        </div>
+
+        <script>
+            function toggleSection(sectionId) {
+                var section = document.getElementById(sectionId);
+                if (section.style.display === "none") {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
