@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dynalight&family=Eater&family=Nabla&display=swap">
 
-     <style>
-        html{	
+    <style>
+        html {   
             background-image: url("../../media/wallpaper.png");
         }
         
@@ -19,25 +19,107 @@
             color: white;
         }
         
-        #backToTop{	
+        #backToTop { 
             background-color: black;
             color: white;
             border: 2px solid white;
         }
 
-        h1{	
+        h1 { 
             color: white;
+        }
+
+        #mainContent {
+            text-align: left;
+            color: white;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        .sideBySide {
+            display: flex;
+            gap: 15px;
+            height: 50%;
+            width:99%;
+        }
+
+        .sideBySideText {
+            flex: 1;
+            text-align: left;
+            width: 50%;
+            height: 50%;
+            font-size: 0.9rem;
+            padding-left: 15px;
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .section-content.active {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <iframe src="../../header.html"></iframe>
+
     <div id="content">
         <hr>
         <div class="blogPost">
             <h1 class="fire-text">MUSICAL TAKES (either highly niche or highly popular. your pick!)</h1>
             <p>all done in my <i>beautiful style</i>.</p>
+            <hr>
+        </div>
+        <div id="mainContent">
+            <ul>
+                <h3 style="color: #f9ba4b;">Thomas Reid:</h3>
+                <li style="color:whitesmoke;">
+                    2017 - Fall 
+                    <button onclick="openSection('fallContent')">Open</button>
+                </li>
+                
+                <div id="fallContent" class="section-content">
+                    <div class="sideBySide">
+                        <iframe style="border: 0; width: 400px; height: auto;" src="https://bandcamp.com/EmbeddedPlayer/album=3305903811/size=large/bgcol=181a1b/linkcol=ba7906/artwork=small/transparent=true/" seamless><a href="https://thomasreidmusic.bandcamp.com/album/fall">Fall by Thomas Reid</a></iframe>
+                        <div class="sideBySideText" style="background-color: #6A2E13;">
+                            <p style="color:#f9ba4b;">will probably always be one of my favorite albums (possibly ever).</p>
+                            <p>There is something profoundly moving in this album, and I haven’t quite found out what yet. A poetic masterpiece that feels etched and connected to the music itself. It has stuck around me ever since I gave it a first listen, and I’d argue that it’s grown me into the person I am currently. If you give it a listen to on a walk—or maybe a particularly grey day, you can feel the love and passion Thomas has for this album. It has an incredibly raw, intimate feel. Brings me to a state of accepting overwhelm each time.  It has influenced me as a musician, and as a person; an album I put on when I’ve lost myself, as a reminder to what I’ve lost, and what I’ve gained over the years since I listened to it. Maybe you’ll feel the same, maybe you won’t. It is still worth a listen.</p>
+                        </div>
+                    </div>
+                </div>
+            </ul>
         </div>
     </div>
+
+    <script>
+        function openSection(sectionId) {
+            const targetSection = document.getElementById(sectionId);
+            if (!targetSection) return;
+
+            const isOpen = targetSection.classList.contains('active');
+
+            const allSections = document.querySelectorAll('.section-content');
+            allSections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            if (!isOpen) {
+                targetSection.classList.add('active');
+                
+                const iframe = targetSection.querySelector('iframe');
+                if (iframe) {
+                    iframe.src = iframe.src;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
