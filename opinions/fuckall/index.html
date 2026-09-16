@@ -49,6 +49,14 @@
         .caption{
             color:rgb(114, 114, 114);
         }
+
+        #memoryLeak {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            border: none;
+            background-color: black;
+        }
     </style>
 </head>
 <body>
@@ -105,6 +113,19 @@ i guess we're all that way.
             <p>"This email is privileged, confidential and/or exempt from disclosure.  If you are not the intended recipient, any disclosure, copying, distribution, or use of this email (including any reliance thereon) is prohibited.  If you received this email in error, please immediately contact the sender and delete the material in its entirety."</p>
             <p><i>how secure!!!</i></p>
             <hr>
+            <p>did you know GIMP can export to html? i didn't either.</p>
+            <iframe id="memoryLeak" src=""></iframe>
+            <button onclick="load()">test your luck?</button>
+            <p>(it struggles badly on my 16gb ram machine)</p>
+            <script>
+                var memoryLeaker = document.getElementById("memoryLeak")
+                function load() {
+                    memoryLeaker.style.display = "block";
+                    memoryLeaker.src = "media/holymemoryleaks.html"
+                }
+            </script>
+            <p>may cause:</p>
+            <img src="media/ruh roh raggy.png">
         </div>
     </div>
 </body>
