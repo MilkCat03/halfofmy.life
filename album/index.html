@@ -1,189 +1,453 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Terrors Of Tomorrow</title>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
-            * {
-                  font-family: "Comic Relief", system-ui;
-            }
+  <head>
+    <title>Terrors Of Tomorrow</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
 
-            body{
-                background-color: white;
-                margin:0px;
-                overflow-y: hidden;
-                background-image: url("paper.jpg");
-            }
+      * {
+        font-family: "Comic Relief", system-ui;
+      }
 
-            #branding{
-                position:fixed;
-                bottom:0px;
-                left:10px;
-                width:20%;
-                height:auto;
-            }
+      body {
+        background-color: white;
+        margin: 0px;
+        overflow-y: hidden;
+        background-image: url("paper.jpg");
+      }
 
-            #sidebar {
-                height:110vh;
-            }
+      #branding {
+        position: fixed;
+        bottom: 0px;
+        left: 10px;
+        width: 20%;
+        height: auto;
+      }
 
-            .baseCard{
-                width:65%;
-                overflow-y: scroll;
-                background-color: #ccc0a3;
-                z-index: 9999;
-                position: absolute;
-                top:40px;
-                right:40px;
-                padding:20px;
-                box-shadow: 5px 5px 5px black;
-                display: none;
-            }
+      #sidebar {
+        height: 110vh;
+      }
 
-            .baseCard img{
-                width:50%;
-                
-            }
+      .baseCard {
+        width: 65%;
+        overflow-y: scroll;
+        background-color: #ccc0a3;
+        z-index: 9999;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        padding: 20px;
+        box-shadow: 5px 5px 5px black;
+        display: none;
+      }
 
-            #homePage {
-                display: block;
-            }
+      .baseCard img {
+        width: 50%;
+      }
 
-            #albumLogo{
-                width: 28%;
-                top:10px;
-                left:5px;
-                height:auto;
-                position: absolute;
-                cursor: pointer;
-            }
+      #homePage {
+        display: block;
+      }
 
-            #intro{
-                width:50%;
-                height:auto;
-                float:right;
-            }
+      #albumLogo {
+        width: 28%;
+        top: 10px;
+        left: 5px;
+        height: auto;
+        position: absolute;
+        cursor: pointer;
+      }
 
-            #sidebarTips{
-                width:50%;
-                height:auto;
-                float:left;
-            }
+      #intro {
+        width: 50%;
+        height: auto;
+        float: right;
+      }
 
+      #sidebarTips {
+        width: 50%;
+        height: auto;
+        float: left;
+      }
 
-            #sidebarLinks{
-                position: absolute;
-                padding-left: 0;
-                margin-left: 0;
-                width: 250px;
-                top:32%;
-                left:25px;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-            }
+      #sidebarLinks {
+        position: absolute;
+        padding-left: 0;
+        margin-left: 0;
+        width: 250px;
+        top: 32%;
+        left: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
 
-            #sidebarLinks button:nth-child(7n + 1) { background-color: orangered; color: white; }
-            #sidebarLinks button:nth-child(7n + 2) { background-color: black; color: white; }
-            #sidebarLinks button:nth-child(7n + 3) { background-color: #3997D1; color: black; }
-            #sidebarLinks button:nth-child(7n + 4) { background-color: orangered; color: white; }
-            #sidebarLinks button:nth-child(7n + 5) { background-color: white; color: black; }
-            #sidebarLinks button:nth-child(7n + 6) { background-color: black; color: white; }
-            #sidebarLinks button:nth-child(7n + 7) { background-color: white; color: darkred; }
+      #sidebarLinks button:nth-child(7n + 1) {
+        background-color: orangered;
+        color: white;
+      }
 
-            #sidebarLinks button:hover{
-                box-shadow: 1px 5px 1px 5px rgba(124, 0, 0, 0.5);
-                z-index: 9998;
-            }
+      #sidebarLinks button:nth-child(7n + 2) {
+        background-color: black;
+        color: white;
+      }
 
-            #sidebarLinks button{
-                width:100%;
-                height:1.5rem;
-                font-size: 1rem;
-                font-weight: 700;
-                border: 0px;
-                padding: 2px;
-                cursor: pointer;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="sidebar">
-            <img id="albumLogo" src="album logo.png" onclick="showHome()">
-            <img id="sidebarImg" src="sidebar.png">
-            <img id="branding" src="../logo/branding.png">
-            <div id="sidebarLinks">
-                <button onclick="showSong('iLikeIt')">"i like it"</button>
-                <button onclick="showSong('runningInCircles')">"running in circles"</button>
-                <button onclick="showSong('toMyYoungerSelf')">"to my younger self"</button>
-                <button onclick="showSong('daysAreGettingClearer')">"days are getting clearer"</button>
-                <button onclick="showSong('itsNotEasy')">"it's not easy"</button>
-                <button onclick="showSong('downTheStreet')">"down the street"</button>
-                <button onclick="showSong('pretty')">"pretty"</button>
-                <button onclick="showSong('talkingInRiddles')">"talking in riddles"</button>
-                <button onclick="showSong('fromTheHospitalPhone')">"from the hospital phone"</button>
-                <button onclick="showSong('whenIWasAllAlone')">"when i was all alone"</button>
-                <button onclick="showSong('fourMonthsAway')">"four months away"</button>
-                <button onclick="showSong('flickerPanic')">(flicker, panic?)</button>
-                <button onclick="showSong('withoutMe')">(without me?)</button>
-                <button onclick="showSong('ive')">(i've?)</button>
-                <button onclick="showSong('timeTap')">(time/tap?)</button>
-                <button onclick="showSong('frigidNakedAfraid')">(frigid, naked, afraid?)</button>
-                <button onclick="showSong('justStayAlive')">(just stay alive?)</button>
-                <button onclick="showSong('littleGirlInsideMe')">(little girl inside me?)</button>
-                <button onclick="showSong('clocks')">(clocks?)</button>
-            </div>
-        </div>
+      #sidebarLinks button:nth-child(7n + 3) {
+        background-color: #3997D1;
+        color: black;
+      }
 
-        <div class="baseCard" id="homePage">
-            <img id="sidebarTips" src="sidebarTips.png">
-            <img id="intro" src="introduction.jpg">
-        </div>
+      #sidebarLinks button:nth-child(7n + 4) {
+        background-color: orangered;
+        color: white;
+      }
 
-        <div class="baseCard" id="iLikeIt"><img src="lyricalpages/ilikeitpng"></div>
-        <div class="baseCard" id="runningInCircles">Running In Circles Content</div>
-        <div class="baseCard" id="toMyYoungerSelf"><img src="lyricalpages/falling.png"></div>
-        <div class="baseCard" id="daysAreGettingClearer"></div>
-        <div class="baseCard" id="itsNotEasy"></div>
-        <div class="baseCard" id="downTheStreet"></div>
-        <div class="baseCard" id="pretty"></div>
-        <div class="baseCard" id="talkingInRiddles"><img src="lyricalpages/talkinginriddles.png"></div>
-        <div class="baseCard" id="fromTheHospitalPhone"></div>
-        <div class="baseCard" id="whenIWasAllAlone"><img src="lyricalpages/watchmylife.png"></div>
-        <div class="baseCard" id="fourMonthsAway"></div>
-        <div class="baseCard" id="flickerPanic"></div>
-        <div class="baseCard" id="withoutMe"></div>
-        <div class="baseCard" id="ive"></div>
-        <div class="baseCard" id="timeTap"></div>
-        <div class="baseCard" id="frigidNakedAfraid"></div>
-        <div class="baseCard" id="justStayAlive"></div>
-        <div class="baseCard" id="littleGirlInsideMe"><img src="lyricalpages/little girl inside me.png"></div>
-        <div class="baseCard" id="clocks"></div>
+      #sidebarLinks button:nth-child(7n + 5) {
+        background-color: white;
+        color: black;
+      }
 
-        <script>
-            function hideAllCards() {
-                const songDivs = document.querySelectorAll('.baseCard');
-                songDivs.forEach(div => {
-                    div.style.display = 'none';
-                });
-            }
+      #sidebarLinks button:nth-child(7n + 6) {
+        background-color: black;
+        color: white;
+      }
 
-            function showSong(songId) {
-                hideAllCards();
-                const selectedSongDiv = document.getElementById(songId);
-                if (selectedSongDiv) {
-                    selectedSongDiv.style.display = 'block';
-                }
-            }
+      #sidebarLinks button:nth-child(7n + 7) {
+        background-color: white;
+        color: darkred;
+      }
 
-            function showHome() {
-                hideAllCards();
-                document.getElementById('homePage').style.display = 'block';
-            }
+      #sidebarLinks button:hover {
+        box-shadow: 1px 5px 1px 5px rgba(124, 0, 0, 0.5);
+        z-index: 9998;
+      }
 
-            window.onload = (event) => {
-                showHome();
-            };
-        </script>
-    </body>
+      #sidebarLinks button {
+        width: 100%;
+        height: 1.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border: 0px;
+        padding: 2px;
+        cursor: pointer;
+      }
+
+        .textBox {
+            width: 47%;
+            height: 100%;
+            display: block;
+            float:left;
+            font-size: 1rem;
+            column-count: 2;
+            column-gap: 2rem;
+            column-fill: balance;
+            background-color: white;
+            padding:10px;
+        }
+
+        h1,
+        p{
+            margin:0px;
+        }
+
+        hr{
+            width:25%;
+            margin-left: 0px;
+            color:black;
+            background-color: black;
+            height:2px;
+        }
+
+        .caption{
+            display:block;
+            width:90%;
+            float:none;
+            clear:both;
+            column-span:all;
+            margin-top: 0.5rem;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="sidebar">
+      <img id="albumLogo" src="album logo.png" onclick="showHome()">
+      <img id="sidebarImg" src="sidebar.png">
+      <img id="branding" src="../logo/branding.png">
+      <div id="sidebarLinks">
+        <button onclick="showSong('iLikeIt')">"i like it"</button>
+        <button onclick="showSong('runningInCircles')">"running in circles"</button>
+        <button onclick="showSong('toMyYoungerSelf')">"to my younger self"</button>
+        <button onclick="showSong('daysAreGettingClearer')">"days are getting clearer"</button>
+        <button onclick="showSong('itsNotEasy')">"it's not easy"</button>
+        <button onclick="showSong('downTheStreet')">"down the street"</button>
+        <button onclick="showSong('pretty')">"pretty"</button>
+        <button onclick="showSong('talkingInRiddles')">"talking in riddles"</button>
+        <button onclick="showSong('fromTheHospitalPhone')">"from the hospital phone"</button>
+        <button onclick="showSong('whenIWasAllAlone')">"when i was all alone"</button>
+        <button onclick="showSong('fourMonthsAway')">"four months away"</button>
+        <button onclick="showSong('flickerPanic')">(flicker, panic?)</button>
+        <button onclick="showSong('withoutMe')">(without me?)</button>
+        <button onclick="showSong('ive')">(i've?)</button>
+        <button onclick="showSong('timeTap')">(time/tap?)</button>
+        <button onclick="showSong('frigidNakedAfraid')">(frigid, naked, afraid?)</button>
+        <button onclick="showSong('justStayAlive')">(just stay alive?)</button>
+        <button onclick="showSong('littleGirlInsideMe')">(little girl inside me?)</button>
+        <button onclick="showSong('clocks')">(clocks?)</button>
+      </div>
+    </div>
+
+    <div class="baseCard" id="homePage">
+      <img id="sidebarTips" src="sidebarTips.png">
+      <img id="intro" src="introduction.jpg">
+    </div>
+
+    <div class="baseCard" id="iLikeIt">
+      <div class="textBox">
+        <h1>i like it:</h1>
+        <hr>
+         <div class="lyrics">
+            <p>
+            tell me whats new,<br>
+            tell me whats fake.<br>
+            tell me whats real,<br>
+            what difference i make.<br>
+            <hr>
+            sing me a song,<br>
+            a teardrop or two.<br>
+            through autotune,<br>
+            through autotune.<br>
+            <hr>
+            practice it out,   x2<br>
+            sing it out loud,<br>
+            its all wrong.<br>
+            its all wrong.<br> (im all wrong.)
+            <hr>
+            does not sound that way.<br>
+            cannot sing that way.<br>
+            why don't i sound the same?<br>
+            why can't i sing that way? (x5)<br>
+            <hr>
+            i couldn't care,<br>
+            anymore.    x2 <br>
+            <hr>
+            ill never sing that way,<br>
+            they are all the same.<br>
+            im not like that.<br>
+            im not like that.<br>
+            <hr>
+            they're my songs,<br>
+            even if they are wrong.<br>
+            i like it.<br>
+            i like it here.
+            <hr>
+            </p>
+         </div>
+
+         <p class="caption">
+            <b>what is this song?:</b> i don't know honestly. i got mad that a bunch of musicians i listen to
+            have sold out, or become diluted in their music. through autotune, or through turning music into an actual career.
+            the music industry doesn't seem to care much about authenticity over cleanliness.
+            i struggle a lot with recording my songs and perfectionism.
+            i had to backup over 2500 iphone voice recordings. because thats how perfectionist i get.
+            its annoying. so this is basically me saying idgaf anymore !!! cause i don't.
+        </p>
+      </div>
+      <img src="../art/images/weeks%202%20to%206/IMG_1961.jpg">
+    </div>
+
+    <div class="baseCard" id="runningInCircles">
+        <div class="textBox">
+        <h1>in circles:</h1>
+        <hr>
+         <div class="lyrics">
+            <p>
+                i've, seen the light,<br>
+                at the end of the tunnel.<br>
+                <hr>
+                and i've, felt the pain,<br>
+                needed to crumble.<br>
+                <hr>
+                and i'm,<br>
+                running in circles.<br>
+                i'm, running in circles.
+                <hr>
+                (vocalize)
+                <hr>
+                im, scared to eat.<br>
+                what if it all gives out?<br>
+                and im, scared to see.<br>
+                how this'll work out<br>
+                <hr>
+                and i'm,<br>
+                running in circles.<br>
+                i'm, running in circles.<br>
+                <hr>
+                i'm, feeling choked.<br>
+                how much pressure can my heart take?<br>
+                the water runs cold.<br>
+                as my minutes play back.<br>
+                <hr>
+                and i, was,<br>
+                running in circles.<br>
+                i, was,<br>
+                running in circles<br>
+                <hr>
+            </p>
+         </div>
+
+         <p class="caption">
+            <b>what is this song?:</b>
+            i wrote this when my situation with CPS was getting unbearable.
+            it was written, crying, trying to be quiet in my aunts spare room.
+            its definitely one of my more bare songs, and i feel like that's for a good reason.
+            it's not meant to be loud. you can barely hear it. like they can barely hear me.
+        </p>
+      </div>
+      <img src="../art/images/weeks%202%20to%206/IMG_1961.jpg">
+    </div>
+
+    <div class="baseCard" id="toMyYoungerSelf">
+      <div class="textBox">
+        <h1>falling:</h1>
+        <hr>
+         <div class="lyrics">
+            <p>
+                fallin', <br>
+                fallin' away,<br>
+                from me. <br>
+                me. <br>
+                <hr>
+                runnin',<br>
+                runnin' away,<br>
+                from me. <br>
+                me.<br> 
+                <hr>
+                i promise. oh i promise,<br>
+                and i promise,<br>
+                we'll stay,<br>
+                carefree.<br>
+                <hr>
+                and one day,<br>
+                oh one day, <br>
+                and one day,<br>
+                ill finally<br>
+                be me.<br>
+                <hr>
+            </p>
+         </div>
+
+         <p class="caption">
+            <b>what is this song?:</b>
+            uses the same chords as another song i know, and i didn't realize until i played them side by side.
+            sounds unique to me though. very simple song, yet makes me cry still.
+            it's not written from my perspective.
+            it's that shattering hope you feel.
+            the hitched breaths before thrashing.
+            the reason you feel horrified by your own skin.
+        </p>
+      </div>
+      <img src="../art/images/weeks%202%20to%206/IMG_1971.jpg">
+    </div>
+
+    <div class="baseCard" id="daysAreGettingClearer">
+        <div class="textBox">
+        <h1>getting clearer:</h1>
+        <hr>
+         <div class="lyrics">
+            <p>
+                head's distraught,<br>
+                all my thoughts,<br>
+                will lead us down.<br>
+                <hr>
+                the ground is not beneath us,<br>
+                and it's giving out.<br>
+                <hr>
+                and i like things clearer,<br>
+                but you're frosted glass.<br>
+                and i'll go ask the mirror<br>
+                if this day will be my last.<br>
+                <hr>
+                i am lost.<br>
+                you are lost.<br>
+                and i'm the cause<br>
+                <hr>
+                and the days are getting clearer,<br>
+                and the sky doesn't seem so grey.<br>
+                my feet don't drag on the pavement,<br>
+                and the people smile back at me!<br>
+                <hr>
+                and the days are getting clearer,<br>
+                and it feels like this'll change<br>
+                i'll go ask the mirror,<br>
+                if i should be myself today.<br>
+                <hr>
+                but, <br>
+                i am lost.<br>
+                you are lost.<br>
+                and i'm the cause<br>
+                <hr>
+            </p>
+         </div>
+
+         <p class="caption">
+            <b>what is this song?:</b>
+            wrote this song out in the middle of the desert. the chords were originally incredibly simple.
+            now it just feels complicated. like everything in my life seems to be.
+            made this when i wanted to give up.
+            i still want to. just in <i>a disclaimer</i> that i won't.
+        </p>
+      </div>
+      <img src="../art/images/weeks%202%20to%206/IMG_1953.jpg">
+    </div>
+
+    <div class="baseCard" id="itsNotEasy"></div>
+
+    <div class="baseCard" id="downTheStreet"></div>
+
+    <div class="baseCard" id="pretty"></div>
+
+    <div class="baseCard" id="talkingInRiddles">
+      <img src="lyricalpages/talkinginriddles.png">
+    </div>
+
+    <div class="baseCard" id="fromTheHospitalPhone"></div>
+    <div class="baseCard" id="whenIWasAllAlone">
+      <img src="lyricalpages/watchmylife.png">
+    </div>
+    <div class="baseCard" id="fourMonthsAway"></div>
+    <div class="baseCard" id="flickerPanic"></div>
+    <div class="baseCard" id="withoutMe"></div>
+    <div class="baseCard" id="ive"></div>
+    <div class="baseCard" id="timeTap"></div>
+    <div class="baseCard" id="frigidNakedAfraid"></div>
+    <div class="baseCard" id="justStayAlive"></div>
+    <div class="baseCard" id="littleGirlInsideMe">
+      <img src="lyricalpages/little girl inside me.png">
+    </div>
+    <div class="baseCard" id="clocks"></div>
+    <script>
+      function hideAllCards() {
+        const songDivs = document.querySelectorAll('.baseCard');
+        songDivs.forEach(div => {
+          div.style.display = 'none';
+        });
+      }
+
+      function showSong(songId) {
+        hideAllCards();
+        const selectedSongDiv = document.getElementById(songId);
+        if (selectedSongDiv) {
+          selectedSongDiv.style.display = 'block';
+        }
+      }
+
+      function showHome() {
+        hideAllCards();
+        document.getElementById('homePage').style.display = 'block';
+      }
+      window.onload = (event) => {
+        showHome();
+      };
+    </script>
+  </body>
 </html>
