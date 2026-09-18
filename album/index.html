@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Terrors Of Tomorrow</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+            * {
+                  font-family: "Comic Relief", system-ui;
+            }
+
+            body{
+                background-color: white;
+                margin:0px;
+                overflow-y: hidden;
+                background-image: url("paper.jpg");
+            }
+
+            #branding{
+                position:fixed;
+                bottom:0px;
+                left:10px;
+                width:20%;
+                height:auto;
+            }
+
+            #sidebar {
+                height:110vh;
+            }
+
+            .baseCard{
+                width:65%;
+                overflow-y: scroll;
+                background-color: #ccc0a3;
+                z-index: 9999;
+                position: absolute;
+                top:40px;
+                right:40px;
+                padding:20px;
+                box-shadow: 5px 5px 5px black;
+                display: none; /* Hides song cards by default */
+            }
+
+            .baseCard img{
+                width:50%;
+                
+            }
+
+            #homePage {
+                display: block;
+            }
+
+            #albumLogo{
+                width: 28%;
+                top:10px;
+                left:5px;
+                height:auto;
+                position: absolute;
+                cursor: pointer;
+            }
+
+            #intro{
+                width:50%;
+                height:auto;
+                float:right;
+            }
+
+            #sidebarTips{
+                width:50%;
+                height:auto;
+                float:left;
+            }
+
+
+            #sidebarLinks{
+                position: absolute;
+                padding-left: 0;
+                margin-left: 0;
+                top:32%;
+                left:25px;
+                display: flex;
+                flex-direction: column;
+                width: 250px;
+                justify-content: flex-start;
+            }
+
+            #sidebarLinks button:nth-child(7n + 1) { background-color: orangered; color: white; }
+            #sidebarLinks button:nth-child(7n + 2) { background-color: black; color: white; }
+            #sidebarLinks button:nth-child(7n + 3) { background-color: #3997D1; color: black; }
+            #sidebarLinks button:nth-child(7n + 4) { background-color: orangered; color: white; }
+            #sidebarLinks button:nth-child(7n + 5) { background-color: white; color: black; }
+            #sidebarLinks button:nth-child(7n + 6) { background-color: black; color: white; }
+            #sidebarLinks button:nth-child(7n + 7) { background-color: white; color: darkred; }
+
+            #sidebarLinks button:hover{
+                box-shadow: 1px 5px 1px 5px rgba(124, 0, 0, 0.5);
+                z-index: 9998;
+            }
+
+            #sidebarLinks button{
+                width:100%;
+                height:auto;
+                font-size: 1.2rem;
+                font-weight: 700;
+                border: 0px;
+                padding: 2px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="sidebar">
+            <img id="albumLogo" src="album logo.png" onclick="showHome()">
+            <img id="sidebarImg" src="sidebar.png">
+            <img id="branding" src="../logo/branding.png">
+            <div id="sidebarLinks">
+                <button onclick="showSong('iLikeIt')">"i like it"</button>
+                <button onclick="showSong('runningInCircles')">"running in circles"</button>
+                <button onclick="showSong('toMyYoungerSelf')">"to my younger self"</button>
+                <button onclick="showSong('daysAreGettingClearer')">"days are getting clearer"</button>
+                <button onclick="showSong('itsNotEasy')">"it's not easy"</button>
+                <button onclick="showSong('downTheStreet')">"down the street"</button>
+                <button onclick="showSong('pretty')">"pretty"</button>
+                <button onclick="showSong('talkingInRiddles')">"talking in riddles"</button>
+                <button onclick="showSong('fromTheHospitalPhone')">"from the hospital phone"</button>
+                <button onclick="showSong('whenIWasAllAlone')">"when i was all alone"</button>
+                <button onclick="showSong('fourMonthsAway')">"four months away"</button>
+                <button onclick="showSong('flickerPanic')">(flicker, panic?)</button>
+                <button onclick="showSong('withoutMe')">(without me?)</button>
+                <button onclick="showSong('ive')">(i've?)</button>
+                <button onclick="showSong('timeTap')">(time/tap?)</button>
+                <button onclick="showSong('frigidNakedAfraid')">(frigid, naked, afraid?)</button>
+                <button onclick="showSong('justStayAlive')">(just stay alive?)</button>
+                <button onclick="showSong('littleGirlInsideMe')">(little girl inside me?)</button>
+                <button onclick="showSong('clocks')">(clocks?)</button>
+            </div>
+        </div>
+
+        <div class="baseCard" id="homePage">
+            <img id="sidebarTips" src="sidebarTips.png">
+            <img id="intro" src="introduction.jpg">
+        </div>
+
+        <div class="baseCard" id="iLikeIt"><img src="lyricalpages/ilikeitpng"></div>
+        <div class="baseCard" id="runningInCircles">Running In Circles Content</div>
+        <div class="baseCard" id="toMyYoungerSelf"><img src="lyricalpages/falling.png"></div>
+        <div class="baseCard" id="daysAreGettingClearer"></div>
+        <div class="baseCard" id="itsNotEasy"></div>
+        <div class="baseCard" id="downTheStreet"></div>
+        <div class="baseCard" id="pretty"></div>
+        <div class="baseCard" id="talkingInRiddles"><img src="lyricalpages/talkinginriddles.png"></div>
+        <div class="baseCard" id="fromTheHospitalPhone"></div>
+        <div class="baseCard" id="whenIWasAllAlone"><img src="lyricalpages/watchmylife.png"></div>
+        <div class="baseCard" id="fourMonthsAway"></div>
+        <div class="baseCard" id="flickerPanic"></div>
+        <div class="baseCard" id="withoutMe"></div>
+        <div class="baseCard" id="ive"></div>
+        <div class="baseCard" id="timeTap"></div>
+        <div class="baseCard" id="frigidNakedAfraid"></div>
+        <div class="baseCard" id="justStayAlive"></div>
+        <div class="baseCard" id="littleGirlInsideMe"><img src="lyricalpages/little girl inside me.png"></div>
+        <div class="baseCard" id="clocks"></div>
+
+        <script>
+            function hideAllCards() {
+                const songDivs = document.querySelectorAll('.baseCard');
+                songDivs.forEach(div => {
+                    div.style.display = 'none';
+                });
+            }
+
+            function showSong(songId) {
+                hideAllCards();
+                const selectedSongDiv = document.getElementById(songId);
+                if (selectedSongDiv) {
+                    selectedSongDiv.style.display = 'block';
+                }
+            }
+
+            function showHome() {
+                hideAllCards();
+                document.getElementById('homePage').style.display = 'block';
+            }
+
+            window.onload = (event) => {
+                showHome();
+            };
+        </script>
+    </body>
+</html>
